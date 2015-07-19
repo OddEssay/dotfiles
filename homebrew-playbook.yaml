@@ -1,0 +1,4 @@
+---
+- hosts: localhost
+  tasks:
+    - homebrew: name=the_silver_searcher state=present
