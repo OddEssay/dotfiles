@@ -15,6 +15,8 @@
 ## vim-ruby mappings
 `gf`     = ***Go*** to the ***file*** under
 
+`Ctrl+]` = Jump to file where class under cursor is defined
+
 # Leader Mappings
 `p`      = ***paste*** system clipboard with correct indentation
 
