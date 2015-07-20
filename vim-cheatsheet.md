@@ -18,3 +18,12 @@
 `Ctrl+s` =  Open result in a new ***split***
     
 `Ctrl+v` =  Open result in a new ***vertical*** split
+
+# Fugitive
+`:Gdiff`   = View ***g***it ***diff***
+
+`:Gstatus` = View ***g***it ***status***
+
+`-`        = Stage/unstage file in status output
+
+`:Gread`   = ***Read*** file from git (Akin to git checkout --)
