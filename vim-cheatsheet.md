@@ -12,6 +12,9 @@
 
 `[M`     = Previous ***method end*** of definition
 
+## vim-ruby mappings
+`gf`     = ***Go*** to the ***file*** under
+
 # Leader Mappings
 `p`      = ***paste*** system clipboard with correct indentation
 
