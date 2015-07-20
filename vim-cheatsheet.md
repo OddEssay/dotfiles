@@ -1,5 +1,6 @@
 # Movement and Navigation
 `Ctrl+w` = Move to ***window***
+`g;`     = ***Go to*** last edit location (works across close/reopen)
 
 # Leader Mappings
 `p`      = ***paste*** system clipboard with correct indentation
