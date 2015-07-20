@@ -1,6 +1,16 @@
 # Movement and Navigation
 `Ctrl+w` = Move to ***window***
+
 `g;`     = ***Go to*** last edit location (works across close/reopen)
+
+## Ruby Motions
+`]m`     = Next ***method*** definition
+
+`[m`      = Previous ***method*** definition
+
+`]M`     = Next ***method end*** of definition
+
+`[M`     = Previous ***method end*** of definition
 
 # Leader Mappings
 `p`      = ***paste*** system clipboard with correct indentation
