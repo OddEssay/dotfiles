@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+  sudo: no
+  tasks:
+    - file: src={{ playbook_dir }}/agignore dest=~/.agignore state=link
