@@ -3,4 +3,5 @@
   sudo: no
   tasks:
     - file: src={{ playbook_dir }}/agignore dest=~/.agignore state=link
+    - file: src={{ playbook_dir }}/vimrc dest=~/.vimrc state=link
     - file: path=~/.tmp state=directory
