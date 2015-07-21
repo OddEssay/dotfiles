@@ -4,8 +4,12 @@
   tasks:
     - file: src={{ playbook_dir }}/agignore dest=~/.agignore state=link
     - file: src={{ playbook_dir }}/vimrc dest=~/.vimrc state=link
+    - file: src={{ playbook_dir }}/zshrc dest=~/.zshrc state=link
+
+    # Give me a tmp directory
     - file: path=~/.tmp state=directory
     
+    # Git Template and webhooks for autorunning ctags
     - file: path=~/.git_template state=directory
     - file: path=~/.git_template/hooks state=directory
     
