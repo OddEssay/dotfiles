@@ -82,3 +82,9 @@ map <Leader>p "*p<CR>
 
 " vim-airline statusbar config
 set laststatus=2
+
+" Better window/split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>

@@ -17,6 +17,13 @@
 
 `Ctrl+]` = Jump to file where class under cursor is defined
 
+# Splits and Windows
+| Mapping | Notes                       |
+| ------- | --------------------------- |
+| Ctrl+j  | Move to window on the left  |
+| Ctrl+k  | Move to window on the right |
+| Ctrl+l  | Move to window below        |
+| Ctrl+h  | Move to window above        |
 # Leader Mappings
 `p`      = ***paste*** system clipboard with correct indentation
 
