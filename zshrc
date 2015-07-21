@@ -25,6 +25,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 alias ap="ansible-playbook"
 alias vim="/usr/local/Cellar/vim/7.4.488/bin/vim" # Point vim at the version I want to load
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH" #homebrew PHP Version
+alias vimrc="vim ~/dotfiles/vimrc"
+alias zshrc="vim ~/dotfiles/zshrc"
 
 # Shortcut to run vagrant ssh -c in the right context
 function vudo() { eval "vagrant ssh -c \"cd /vagrant && $@\"" }
