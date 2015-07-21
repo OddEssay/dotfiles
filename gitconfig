@@ -1,0 +1,18 @@
+[push]
+	default = simple
+[user]
+	email = clicknmix@gmail.com
+	name = Paul Freeman
+[core]
+	excludesfile = ~/.gitignore_global
+	eol = lf
+	fileMode = false
+	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[init]
+	templatedir = ~/.git_template
