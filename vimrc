@@ -72,10 +72,10 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_switch_buffer = 'E'
 
 " RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>t :wa<CR> :call RunCurrentSpecFile()<CR>
+map <Leader>s :wa<CR> :call RunNearestSpec()<CR>
+map <Leader>l :wa<CR> :call RunLastSpec()<CR>
+map <Leader>a :wa<CR> :call RunAllSpecs()<CR>
 
 " Make pasting code simpler
 map <Leader>p "*p<CR>
