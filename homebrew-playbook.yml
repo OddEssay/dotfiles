@@ -1,6 +1,9 @@
 ---
 - hosts: localhost
   sudo: no
+  vars: 
+    homebrew_state: present # Override with: --extra-vars "homebrew_state=latest"
   tasks:
-    - homebrew: name=the_silver_searcher state=present
-    - homebrew: name=ctags-exuberant state=present
+    - homebrew: name=the_silver_searcher state={{ homebrew_state }}
+    - homebrew: name=ctags-exuberant state={{ homebrew_state }}
+    - homebrew: name=tmux state={{ homebrew_state }}
