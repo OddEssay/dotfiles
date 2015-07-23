@@ -14,6 +14,7 @@ Plugin 'bling/vim-airline'
 Plugin 'fugitive.vim'
 Plugin 'Solarized'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'rizzatti/dash.vim'
 
 call vundle#end()
 filetype plugin indent on
