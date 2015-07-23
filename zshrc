@@ -18,6 +18,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:~/npm/bin:~/npm/lib/node_modules"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Make navigation around my main file paths easier
+cdpath=(~/ ~/Development ~/Development/lovefruitful)
+
 # export LANG=en_US.UTF-8
 
 # export SSH_KEY_PATH="~/.ssh/dsa_id" #ssh
