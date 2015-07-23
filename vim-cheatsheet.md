@@ -50,3 +50,19 @@
 `-`        = Stage/unstage file in status output
 
 `:Gread`   = ***Read*** file from git (Akin to git checkout --)
+
+# Editing
+
+| Insert Mode Mapping   | Notes |
+| --------------------- | ----- |
+| Ctrl+r = *expression* | Inserts the ***result*** of ***expression** |
+
+
+
+
+
+
+
+
+
+
