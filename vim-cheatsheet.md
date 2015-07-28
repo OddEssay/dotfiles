@@ -1,3 +1,14 @@
+# Tmux
+| Mapping | Notes |
+| ------- | ----- |
+| Ctrl+b  | ***Prefix*** |
+| _prefix_ % | ***Split*** new pane |
+| _prefix_ o | ***Swap*** panes |
+| _prefix_ z | ***Zoom*** pane |
+| _prefix_ d | ***Detach*** session |
+| _prefix_ s | list ***Sessions*** |
+| _prefix_ q | Show window numbers |
+
 # Movement and Navigation
 `Ctrl+w` = Move to ***window***
 
@@ -31,13 +42,13 @@
 ***Full Mappings*** :h ctrlp-mappings
 
 `Ctrl+k` =  Move ***up*** in result list
-    
+
 `Ctrl+j` =  Move ***down*** in result list
     
 `Ctrl+p` =  ***previous*** search
     
 `Ctrl+n` =  ***next*** search
-    
+
 `Ctrl+s` =  Open result in a new ***split***
     
 `Ctrl+v` =  Open result in a new ***vertical*** split
@@ -56,13 +67,3 @@
 | Insert Mode Mapping   | Notes |
 | --------------------- | ----- |
 | Ctrl+r = *expression* | Inserts the ***result*** of ***expression** |
-
-
-
-
-
-
-
-
-
-
