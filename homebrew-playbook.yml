@@ -7,3 +7,6 @@
     - homebrew: name=the_silver_searcher state={{ homebrew_state }}
     - homebrew: name=ctags-exuberant state={{ homebrew_state }}
     - homebrew: name=tmux state={{ homebrew_state }}
+
+    - homebrew_tap: name=caskroom/cask state=present
+    - homebrew: name=brew-cask state={{ homebrew_state }}
