@@ -7,7 +7,7 @@
 | _prefix_ z | ***Zoom*** pane |
 | _prefix_ d | ***Detach*** session |
 | _prefix_ s | list ***Sessions*** |
-| _prefix_ q | Show window numbers |
+| _prefix_ q # | Show pane numbers and jump to ***#*** |
 
 # Movement and Navigation
 `Ctrl+w` = Move to ***window***
