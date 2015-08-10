@@ -9,6 +9,12 @@
 | _prefix_ s | list ***Sessions*** |
 | _prefix_ q # | Show pane numbers and jump to ***#*** |
 
+# SSH
+| Mapping | Notes |
+| ------- | ----- |
+| Enter ~ . | Escape sequence to kill hung connections (Or just exit) |
+| Enter ~ ? | Escape sequence to list available escape options |
+
 # Movement and Navigation
 `Ctrl+w` = Move to ***window***
 
