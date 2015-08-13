@@ -34,7 +34,7 @@
 
 `Ctrl+]` = Jump to file where class under cursor is defined
 
-# Splits and Windows
+# Tmux Splits and Windows
 | Mapping | Notes                       |
 | ------- | --------------------------- |
 | Ctrl+j  | Move to window on the left  |
