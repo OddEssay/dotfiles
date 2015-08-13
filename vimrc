@@ -61,8 +61,12 @@ colorscheme solarized
 " Make backspace behave normally
 set backspace=indent,eol,start
   
-" Start search before pressing enter
+" Search settings
 set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+nmap <leader>h :nohlsearch<cr>
 
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
 " HT: https://upcase.com/videos/onramp-to-vim-plugins

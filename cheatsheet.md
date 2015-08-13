@@ -41,8 +41,12 @@
 | Ctrl+k  | Move to window on the right |
 | Ctrl+l  | Move to window below        |
 | Ctrl+h  | Move to window above        |
-# Leader Mappings
-`p`      = ***paste*** system clipboard with correct indentation
+
+# Vim Leader Mappings
+| Leader + | Notes                                                 |
+| -------- | ----------------------------------------------------- |
+|    p     | ***paste*** system clipboard with correct indentation |
+|    h     | Clear ***highlighted*** search results                |
 
 # CtrlP
 ***Full Mappings*** :h ctrlp-mappings
