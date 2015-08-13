@@ -10,3 +10,5 @@
 
     - homebrew_tap: name=caskroom/cask state=present
     - homebrew: name=brew-cask state={{ homebrew_state }}
+
+    - homebrew_cask: name=heroku-toolbelt state={{ homebrew_state }}
