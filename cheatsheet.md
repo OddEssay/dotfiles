@@ -75,4 +75,5 @@
 
 | Insert Mode Mapping   | Notes |
 | --------------------- | ----- |
-| Ctrl+r = *expression* | Inserts the ***result*** of ***expression** |
+| Ctrl+r = *expression* | Inserts the ***result*** of ***expression*** |
+| dit                   | ***delete*** ***inside*** HTML ***tag*** |

@@ -11,4 +11,4 @@ Initial install of Ansible needs to be done by hand using standard instructions 
 | homebrew-playbook.yml --extra-vars "homebrew_state=latest" | As above, but install the latest version of all resources |
 
 # Notes and Documentation
-```vim-cheatsheet.md``` contains a list of my common Vim commands and a few related keys such as Tmux interactions for easy reference.
+```cheatsheet.md``` contains a list of my common Vim commands and a few related keys such as Tmux interactions for easy reference.
