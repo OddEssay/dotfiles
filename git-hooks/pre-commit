@@ -1,0 +1,33 @@
+#!/bin/bash
+echo ""
+echo " -== Starting pre-commit checks ==-"
+echo ""
+CHANGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+for FILE in $CHANGED_FILES
+do
+  if [[ "$FILE" =~ ^.+(rb)$ ]]; then
+    RUBY_FILES="$RUBY_FILES $FILE"
+  fi
+  if [[ "$FILE" =~ ^.+(php)$ ]]; then
+    PHP_FILES="$PHP_FILES $FILE"
+  fi
+done
+
+if [ -n "$RUBY_FILES" ] && [ -e ".rubocop.yml" ]; then
+  echo "Running Rubocop on $RUBY_FILES"
+  rubocop $RUBY_FILES
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+fi
+if [ -n "$PHP_FILES" ]; then
+  echo "PHP Linting on $PHP_FILES"
+  for PHP_FILE in $PHP_FILES
+  do
+    php -l $PHP_FILE 2> /dev/null > /dev/null
+    if [ $? -ne 0 ]; then
+      echo "PHP Lint error on $PHP_FILE"
+      exit 1 
+    fi
+  done
+fi
