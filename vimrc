@@ -28,6 +28,7 @@ set number
 set ruler
 set showmode
 set showcmd
+set cursorline
 
 set autoindent
 set copyindent
@@ -53,6 +54,7 @@ set background=dark
 "let g:solarized_termtrans=1
 colorscheme solarized
 
+highlight CursorLine   cterm=underline term=underline ctermbg=NONE guibg=NONE
 
 "
 " sensible vim settings
