@@ -5,10 +5,10 @@ echo ""
 CHANGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
 for FILE in $CHANGED_FILES
 do
-  if [[ "$FILE" =~ ^.+(rb)$ ]]; then
+  if [[ "$FILE" =~ ^.+(\.rb)$ ]]; then
     RUBY_FILES="$RUBY_FILES $FILE"
   fi
-  if [[ "$FILE" =~ ^.+(php)$ ]]; then
+  if [[ "$FILE" =~ ^.+(\.php)$ ]]; then
     PHP_FILES="$PHP_FILES $FILE"
   fi
 done
