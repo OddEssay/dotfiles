@@ -3,4 +3,4 @@
 
 # If there's a composer.lock file and Vagrant is install, make sure composer is up to date
 [ -e composer.lock ] && [ -e Vagrantfile ] &&  vagrant ssh -c "cd /vagrant; composer install" || true
-[ -e Vagrantfile ] && [ -e tmp ] && vagrant ssh -c "echo 'Cleaning *.php from tmp'; rm /vagrant/tmp/*.php" || true
+[ -e Vagrantfile ] && [ -e tmp ] && vagrant ssh -c "echo 'Cleaning *.php from tmp'; rm /vagrant/tmp/*.php 2> /dev/null" || true
