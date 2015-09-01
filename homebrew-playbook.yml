@@ -14,3 +14,5 @@
     - homebrew_cask: name=heroku-toolbelt state={{ homebrew_state }}
 
     - npm: name=jshint global=true state={{ homebrew_state }}
+
+    - homebrew: name=tidy-html5 state={{ homebrew_state }}

@@ -107,3 +107,5 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_html_validator_exec = 'tidy5'
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
