@@ -15,6 +15,7 @@ Plugin 'fugitive.vim'
 Plugin 'Solarized'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'rizzatti/dash.vim'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on
@@ -95,3 +96,13 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Syntastic Recommended Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
