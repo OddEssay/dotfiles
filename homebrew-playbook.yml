@@ -12,3 +12,5 @@
     - homebrew: name=brew-cask state={{ homebrew_state }}
 
     - homebrew_cask: name=heroku-toolbelt state={{ homebrew_state }}
+
+    - npm: name=jshint global=true state={{ homebrew_state }}

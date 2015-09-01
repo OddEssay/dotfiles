@@ -11,12 +11,17 @@ do
   if [[ "$FILE" =~ ^.+(\.php)$ ]]; then
     PHP_FILES="$PHP_FILES $FILE"
   fi
+  if [[ "$FILE" =~ ^.*(\.js)$ ]]; then
+    JS_FILES="$JS_FILES $FILE"
+  fi
 done
 
 if [ -n "$RUBY_FILES" ] && [ -e ".rubocop.yml" ]; then
   echo "Running Rubocop on $RUBY_FILES"
   rubocop $RUBY_FILES
   if [ $? -ne 0 ]; then
+    echo ""
+    echo " -== Rubocop errors stopping commit ==-"
     exit 1
   fi
 fi
@@ -26,8 +31,18 @@ if [ -n "$PHP_FILES" ]; then
   do
     php -l $PHP_FILE 2> /dev/null > /dev/null
     if [ $? -ne 0 ]; then
-      echo "PHP Lint error on $PHP_FILE"
+      echo ""
+      echo " -== PHP Lint error on $PHP_FILE stopping commit ==-"
       exit 1 
     fi
   done
+fi
+if [ -n "$JS_FILES" ]; then
+  echo "JSHint on $JS_FILES"
+  jshint $JS_FILES
+  if [ $? -ne 0 ]; then
+    echo ""
+    echo " -== JSHint errors stopping commit ==-"
+    exit 1
+  fi
 fi
