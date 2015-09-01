@@ -36,3 +36,6 @@ function vudo() { eval "vagrant ssh -c \"cd /vagrant && $@\"" }
 
 # Handle Composer and clean caches
 function cu() { eval "vudo php -d memory_limit=-1 /usr/local/bin/composer update '$@'; vudo rm -f tmp/*.php" }
+
+# Stop auto changing to directories because it's annoying
+unsetopt AUTO_CD
