@@ -11,7 +11,7 @@ do
   if [[ "$FILE" =~ ^.+(\.php)$ ]]; then
     PHP_FILES="$PHP_FILES $FILE"
   fi
-  if [[ "$FILE" =~ ^.*(\.js)$ ]]; then
+  if [[ ! "$FILE" =~ ^bower_components ]] && [[ "$FILE" =~ ^.+(\.js)$ ]]; then
     JS_FILES="$JS_FILES $FILE"
   fi
 done
