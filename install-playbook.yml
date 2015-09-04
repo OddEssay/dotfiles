@@ -22,3 +22,4 @@
       npm: name={{ item }} global=true state={{ install_state }}
       with_items:
         - jshint
+        - nd
