@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  sudo: no
+  vars: 
+    install_state: present # Override with: --extra-vars "install_state=latest"
+  tasks:
+    - name: Install homebrew items
+      homebrew: name={{ item }} state={{ install_state }}
+      with_items:
+        - the_silver_searcher
+        - ctags-exuberant
+        - tmux
+        - brew-cask
+        - tidy-html5
+
+    - name: Install homebrew_cask items
+      homebrew_cask: name={{ item }} state={{ install_state }}
+      with_items:
+        - heroku-toolbelt
+
+    - name: Install Global NPM items
+      npm: name={{ item }} global=true state={{ install_state }}
+      with_items:
+        - jshint
