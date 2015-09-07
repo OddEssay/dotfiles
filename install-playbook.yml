@@ -14,9 +14,10 @@
         - tidy-html5
 
     - name: Install homebrew_cask items
-      homebrew_cask: name={{ item }} state={{ install_state }}
+      homebrew_cask: name={{ item }} state=present
       with_items:
         - heroku-toolbelt
+        - ngrok
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
