@@ -40,5 +40,9 @@ alias vs="vagrant ssh" # Jump into Vagrant
 # Handle Composer and clean caches
 function cu() { eval "vudo php -d memory_limit=-1 /usr/local/bin/composer update '$@'; vudo rm -f tmp/*.php" }
 
+alias syncb="bundle install; vagrant ssh -c 'cd /vagrant; bundle install'"
+
 # Stop auto changing to directories because it's annoying
 unsetopt AUTO_CD
+
+
