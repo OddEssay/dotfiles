@@ -33,6 +33,10 @@
     
     - file: src={{ playbook_dir }}/gitconfig dest=~/.gitconfig state=link
 
+    # rvm hooks
+  
+    - file: src={{ playbook_dir }}/rvm-hooks/after_use_show_ruby dest=~/.rvm/hooks/after_use_show_ruby state=link
+
     # tmux attach from Thoughtbot
     - file: src={{ playbook_dir }}/bin/tat dest=/usr/local/bin/tat state=link
     - file: src={{ playbook_dir }}/tmux.conf dest=~/.tmux.conf state=link

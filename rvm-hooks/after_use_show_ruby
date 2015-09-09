@@ -1,0 +1,3 @@
+#! /bin/bash
+echo ""
+echo "${Bold}${Green}>>${Rst}  Now using ruby: ${Bold}${Red}$rvm_ruby_string${Rst}"
