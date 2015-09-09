@@ -12,6 +12,7 @@ export UPDATE_ZSH_DAYS=5
 plugins=(git osx vagrant rails) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 
 source $ZSH/oh-my-zsh.sh
+source ~/dotfiles/terminal-colours.sh
 
 # User configuration
 
