@@ -12,6 +12,7 @@
         - tmux
         - brew-cask
         - tidy-html5
+        - vim
 
     - name: Install homebrew_cask items
       homebrew_cask: name={{ item }} state=present
