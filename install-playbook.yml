@@ -19,6 +19,16 @@
       with_items:
         - heroku-toolbelt
         - ngrok
+        - virtualbox
+        - vagrant
+        - google-chrome
+        - transmit
+        - caffeine
+        - rescuetime
+        - dropbox
+        - moom
+        - jeromelebel-mongohub
+        - sqlitebrowser
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
