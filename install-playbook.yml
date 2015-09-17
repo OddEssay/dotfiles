@@ -35,3 +35,6 @@
       with_items:
         - jshint
         - nd
+
+    - name: Install Gems
+      shell: rvm @global do gem install tmuxinator
