@@ -1,3 +1,8 @@
 #! /bin/bash
 echo ""
-echo "${Bold}${Green}>>${Rst}  Now using ruby: ${Bold}${Red}$rvm_ruby_string${Rst}"
+if [ $rvm_ruby_string ]; then
+  THE_RUBY_STRING="${Bold}${Red}$rvm_ruby_string${Rst}"
+else
+  THE_RUBY_STRING="${Bold}${Redo}default${Rst}"
+fi
+echo "${Bold}${Green}>>${Rst}  Now using ruby: $THE_RUBY_STRING"
