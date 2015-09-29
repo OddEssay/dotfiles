@@ -4,6 +4,8 @@
   vars: 
     install_state: present # Override with: --extra-vars "install_state=latest"
   tasks:
+    - name: Clean up and update
+      shell: brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
     - name: Install homebrew items
       homebrew: name={{ item }} state={{ install_state }}
       with_items:
@@ -29,6 +31,7 @@
         - moom
         - jeromelebel-mongohub
         - sqlitebrowser
+        - otto
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
