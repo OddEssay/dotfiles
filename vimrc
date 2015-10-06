@@ -80,13 +80,38 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_switch_buffer = 'E'
 
 " RSpec.vim mappings
-map <Leader>t :wa<CR> :call RunCurrentSpecFile()<CR>
-map <Leader>s :wa<CR> :call RunNearestSpec()<CR>
-map <Leader>l :wa<CR> :call RunLastSpec()<CR>
-map <Leader>a :wa<CR> :call RunAllSpecs()<CR>
+function! RubyLeaderMappings()
+  nnoremap <Leader>t :wa<CR> :call RunCurrentSpecFile()<CR>
+  nnoremap <Leader>s :wa<CR> :call RunNearestSpec()<CR>
+  nnoremap <Leader>l :wa<CR> :call RunLastSpec()<CR>
+  nnoremap <Leader>a :wa<CR> :call RunAllSpecs()<CR>
+endfunction
+
+" PHPUnit Mappings
+" Copy all the Ruby Test Mappings To Run PHPUnit
+function! PHPLeaderMappings()
+  nnoremap <Leader>t :wa<CR> :call RunPHPUnitOnThisFileInVagrant()<CR>
+  nnoremap <Leader>s :wa<CR> :call RunPHPUnitOnThisFileInVagrant()<CR>
+  nnoremap <Leader>l :wa<CR> :call RunPHPUnitInVagrant()<CR>
+  nnoremap <Leader>a :wa<CR> :call RunPHPUnitInVagrant()<CR>
+endfunction
+
+function! RunPHPUnitOnThisFileInVagrant()
+  silent !clear
+  execute "!vagrant ssh -c 'phpunit " . expand("%") . "'"
+endfunction
+
+function! RunPHPUnitInVagrant()
+  silent !clear
+  execute "!vagrant ssh -c 'phpunit'"
+endfunction
+
 
 " Make pasting code simpler
 map <Leader>p "*p<CR>
+
+autocmd filetype php call PHPLeaderMappings()
+autocmd filetype ruby call RubyLeaderMappings() 
 
 " vim-airline statusbar config
 set laststatus=2
