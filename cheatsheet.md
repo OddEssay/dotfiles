@@ -77,3 +77,7 @@
 | --------------------- | ----- |
 | Ctrl+r = *expression* | Inserts the ***result*** of ***expression*** |
 | dit                   | ***delete*** ***inside*** HTML ***tag*** |
+## Abolish
+| Abolish Command | Notes |
+| --------------- | ----- |
+| :%Subvert/facilit{y,ies}/building{,s}/g | Replace ***facilit***y with ***building***, facilit***ies*** with building***s*** |
