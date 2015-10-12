@@ -99,7 +99,7 @@ endfunction
 
 function! RunPHPUnitOnThisFileInVagrant()
   silent !clear
-  execute "!vagrant ssh -c 'phpunit " . expand("%") . "'"
+  execute "!vagrant ssh -c 'cd /vagrant; phpunit " . expand("%") . "'"
 endfunction
 
 function! RunPHPUnitInVagrant()
