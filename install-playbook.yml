@@ -4,8 +4,14 @@
   vars: 
     install_state: present # Override with: --extra-vars "install_state=latest"
   tasks:
+    - stat: path=/usr/local
+      register: usrlocal
+    - name: If root owns /usr/local, change it to current user.
+      shell: sudo chown -R $(whoami):admin /usr/local
+      when: usrlocal.stat.pw_name == "root"
     - name: Clean up and update
       shell: brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
+      ignore_errors: yes
     - name: Install homebrew items
       homebrew: name={{ item }} state={{ install_state }}
       with_items:
