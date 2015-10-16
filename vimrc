@@ -27,6 +27,9 @@ runtime macros/matchit.vim
 
 set relativenumber
 set number
+nnoremap <Leader>n :set number! relativenumber!<CR>
+
+
 set ruler
 set showmode
 set showcmd
@@ -70,6 +73,7 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+" Turn off highlighting after a search
 nmap <leader>h :nohlsearch<cr>
 
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
