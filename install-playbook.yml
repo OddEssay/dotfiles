@@ -22,6 +22,7 @@
         - tidy-html5
         - vim
         - exercism
+        - tree
 
     - name: Install homebrew_cask items
       homebrew_cask: name={{ item }} state=present
