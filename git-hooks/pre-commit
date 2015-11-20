@@ -17,8 +17,8 @@ do
 done
 
 if [ -n "$RUBY_FILES" ] && [ -e ".rubocop.yml" ]; then
-  echo "Running Rubocop on $RUBY_FILES"
-  rubocop $RUBY_FILES
+  echo "Running Rubocop due to changes in $RUBY_FILES"
+  rubocop
   if [ $? -ne 0 ]; then
     echo ""
     echo " -== Rubocop errors stopping commit ==-"
