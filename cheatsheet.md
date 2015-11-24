@@ -29,10 +29,15 @@
 
 `[M`     = Previous ***method end*** of definition
 
-## vim-ruby mappings
-`gf`     = ***Go*** to the ***file*** under
-
-`Ctrl+]` = Jump to file where class under cursor is defined
+# Vim Ruby Mappings
+| Mapping    | Notes                                                 |
+| ---------- | ----------------------------------------------------- |
+| Leader + t | ***Test*** current file with rspec                    |
+| Leader + s | Run nearest ***spec***                                |
+| Leader + l | Run ***last*** spec                                   |
+| Leader + a | Run ***all*** specs                                   |
+|   gf     | ***Go*** to the ***file*** under                        |
+| Ctrl+]   | Jump to file where class under cursor is defined        |
 
 # Tmux Splits and Windows
 | Mapping | Notes                       |
@@ -47,6 +52,7 @@
 | -------- | ----------------------------------------------------- |
 |    p     | ***paste*** system clipboard with correct indentation |
 |    h     | Clear ***highlighted*** search results                |
+|    n     | Toggle ***numbers*** in the gutter for copy/paste etc |
 
 # CtrlP
 ***Full Mappings*** :h ctrlp-mappings
