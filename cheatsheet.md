@@ -8,7 +8,7 @@
 | _prefix_ d | ***Detach*** session              |
 | _prefix_ s | list ***Sessions***               |
 | _prefix_ q # | Show pane numbers and jump to ***#*** |
-|   Ctrl+i   | ***Increase*** pane size down     |
+|   Ctrl+d   | Increase pane size ***down***     |
 |   Ctrl+u   | Decrease pane size ***up***       |
 
 # SSH
