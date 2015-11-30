@@ -1,15 +1,16 @@
 # Tmux
 | Mapping | Notes |
 | ---------- | --------------------------------- |
-|   Ctrl+b   | ***Prefix***                      |
-| _prefix_ % | ***Split*** new pane              |
-| _prefix_ o | ***Swap*** panes                  |
-| _prefix_ z | ***Zoom*** pane                   |
-| _prefix_ d | ***Detach*** session              |
-| _prefix_ s | list ***Sessions***               |
+|   Ctrl+b   | ***Prefix***                            |
+| _prefix_ % | ***Split*** new pane                    |
+| _prefix_ o | ***Swap*** panes                        |
+| _prefix_ z | ***Zoom*** pane                         |
+| _prefix_ d | ***Detach*** session                    |
+| _prefix_ s | list ***Sessions***                     |
 | _prefix_ q # | Show pane numbers and jump to ***#*** |
-|   Ctrl+d   | Increase pane size ***down***     |
-|   Ctrl+u   | Decrease pane size ***up***       |
+|   Ctrl+d   | Increase pane size ***down***           |
+|   Ctrl+u   | Decrease pane size ***up***             |
+|   Ctrl+r   | ***Reload*** tmux config                |
 
 # SSH
 | Mapping | Notes |
