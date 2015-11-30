@@ -24,6 +24,9 @@ if [ -n "$RUBY_FILES" ] && [ -e ".rubocop.yml" ]; then
     echo " -== Rubocop errors stopping commit ==-"
     exit 1
   fi
+  echo ""
+  echo "Running RSpec with rake"
+  rake
 fi
 if [ -n "$PHP_FILES" ]; then
   echo "PHP Linting on $PHP_FILES"
