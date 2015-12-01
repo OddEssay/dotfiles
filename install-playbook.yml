@@ -49,4 +49,8 @@
         - nd
 
     - name: Install Gems
-      shell: rvm @global do gem install tmuxinator
+      shell: rvm @global do gem install {{ item }}
+      with_items:
+        - tmuxinator
+        - flog
+        - excellent
