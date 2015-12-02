@@ -4,8 +4,15 @@
 # Always switch on Vagrant
 [ -e Vagrantfile ] && vagrant up || true
 
-# If there's a composer.lock file and Vagrant is install, make sure composer is up to date
+# PHP: If there's a composer.lock file and Vagrant is install, make sure composer is up to date
 [ -e composer.lock ] && [ -e Vagrantfile ] &&  vagrant ssh -c "cd /vagrant; composer install" || true
-[ -e Vagrantfile ] && [ -e tmp ] && vagrant ssh -c "echo 'Cleaning *.php from tmp'; rm /vagrant/tmp/*.php 2> /dev/null" || true
-# Make sure any assets are correctly compiled against the current codebase
+[ -e composer.lock ] && [ -e Vagrantfile ] && [ -e tmp ] && vagrant ssh -c "echo 'Cleaning *.php from tmp'; rm /vagrant/tmp/*.php 2> /dev/null" || true
+
+# JS: Make sure any assets are correctly compiled against the current codebase
 [ -e Gruntfile.js ] && grunt build || true
+
+# Ruby: Keep bundler in sync with currently checked out code
+# If there is a Gemfile.lock and Vagrantfile, run bundler in the VM
+[ -e Gemfile.lock ] && [ -e Vagrantfile ] && vagrant ssh -c "cd /vagrant; bundle install" || true
+# Run bundler on host if there is a Gemfile
+[ -e Gemfile.lock ] && bundle install || true
