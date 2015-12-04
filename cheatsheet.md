@@ -86,6 +86,7 @@
 | --------------------- | ----- |
 | Ctrl+r = *expression* | Inserts the ***result*** of ***expression*** |
 | dit                   | ***delete*** ***inside*** HTML ***tag*** |
+|  Ctrl+_               | Close ***unclosed***  HTML tag           |
 ## Abolish
 | Abolish Command | Notes |
 | --------------- | ----- |

@@ -17,6 +17,8 @@ Plugin 'Solarized'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'rizzatti/dash.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'closetag.vim'
+Plugin 'cohama/lexima.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -139,3 +141,13 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_html_validator_exec = 'tidy5'
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+
+" Folding
+set foldmethod=indent
+set foldlevel=1
+set foldnestmax=10
+" Open all folds by default
+set nofoldenable
+
+let g:lexima_enable_endwise_rules = 1
+call lexima#add_rule({'char': "<bar>", 'input_after': "<bar>", 'filetype': 'ruby'})
