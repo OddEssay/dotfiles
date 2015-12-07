@@ -12,6 +12,10 @@
     - name: Clean up and update
       shell: brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
       ignore_errors: yes
+    - name: Homebrew tap
+      homebrew_tap: name={{ item }} state=present
+      with_items:
+        - ethereum/ethereum
     - name: Install homebrew items
       homebrew: name={{ item }} state={{ install_state }}
       with_items:
@@ -23,6 +27,7 @@
         - vim
         - exercism
         - tree
+        - ethereum
 
     - name: Install homebrew_cask items
       homebrew_cask: name={{ item }} state=present
