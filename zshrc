@@ -52,3 +52,5 @@ alias rehook="cp -R ~/.git_template/hooks/* .git/hooks"
 
 # Run ABC Checks on ruby
 function abc() { eval "flog $@; excellent $@" }
+
+export EDITOR=vim
