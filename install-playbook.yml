@@ -10,7 +10,7 @@
       shell: sudo chown -R $(whoami):admin /usr/local
       when: usrlocal.stat.pw_name == "root"
     - name: Clean up and update
-      shell: brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
+      shell: (brew update || true) && (brew upgrade brew-cask || true) && (brew cleanup || true) && (brew cask cleanup || true) && (brew prune || true)
       ignore_errors: yes
     - name: Homebrew tap
       homebrew_tap: name={{ item }} state=present
@@ -29,6 +29,7 @@
         - tree
         - ethereum
         - gs
+        - postgresql
 
     - name: Install homebrew_cask items
       homebrew_cask: name={{ item }} state=present
@@ -47,6 +48,7 @@
         - sqlitebrowser
         - otto
         - calibre
+        - xquartz
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
