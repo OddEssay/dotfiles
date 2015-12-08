@@ -28,6 +28,7 @@
         - exercism
         - tree
         - ethereum
+        - gs
 
     - name: Install homebrew_cask items
       homebrew_cask: name={{ item }} state=present
