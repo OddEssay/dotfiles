@@ -30,6 +30,10 @@
         - ethereum
         - gs
         - postgresql
+        - openssl
+
+    - name: Fix OpenSSL link issue
+      shell: brew link --force openssl
 
     - name: Install homebrew_cask items
       homebrew_cask: name={{ item }} state=present
