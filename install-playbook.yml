@@ -31,6 +31,7 @@
         - gs
         - postgresql
         - openssl
+        - imagemagick
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
@@ -66,3 +67,4 @@
         - tmuxinator
         - flog
         - excellent
+        - lolcommits
