@@ -33,6 +33,7 @@
         - openssl
         - imagemagick
         - gpg
+        - reattach-to-user-namespace
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
