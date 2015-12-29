@@ -32,6 +32,7 @@
         - postgresql
         - openssl
         - imagemagick
+        - gpg
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
