@@ -2,7 +2,7 @@
 	default = simple
 [user]
 	email = clicknmix@gmail.com
-	name = Paul Freeman
+	name = Paul Bennett-Freeman
 [core]
 	excludesfile = ~/.gitignore_global
 	eol = lf
