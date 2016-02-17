@@ -46,7 +46,6 @@ alias syncb="bundle install; vagrant ssh -c 'cd /vagrant; bundle install'"
 # Stop auto changing to directories because it's annoying
 unsetopt AUTO_CD
 
-alias fixmailbox="brew cask remove mailbox; rm -rf ~/Library/Containers/com.dropbox.mailbox; rm -rf ~/Library/Caches/com.dropbox.mbd.external-beta; brew cask install mailbox;" 
 # Copy the .git_template hooks into the current repo. -R to Ensure symlinks
 alias rehook="cp -R ~/.git_template/hooks/* .git/hooks"
 
