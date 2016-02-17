@@ -50,6 +50,9 @@ alias fixmailbox="brew cask remove mailbox; rm -rf ~/Library/Containers/com.drop
 # Copy the .git_template hooks into the current repo. -R to Ensure symlinks
 alias rehook="cp -R ~/.git_template/hooks/* .git/hooks"
 
+# Shortcut to run diff-so-fancy with git
+alias dsf="git diff --color | diff-so-fancy"
+
 # Run ABC Checks on ruby
 function abc() { eval "flog $@; excellent $@" }
 
