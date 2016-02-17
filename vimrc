@@ -140,6 +140,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_html_validator_exec = 'tidy5'
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_jshint_args = '--config ~/.jshintrc'
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 " Folding
