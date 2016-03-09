@@ -35,6 +35,7 @@
         - gpg
         - reattach-to-user-namespace
         - diff-so-fancy
+        - sslmate
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
