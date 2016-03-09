@@ -168,3 +168,13 @@ augroup BWCCreateDir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+" Automatically remove whitespace at end of lines
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType php,ruby,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
