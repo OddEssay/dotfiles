@@ -144,6 +144,8 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_javascript_jshint_args = '--config ~/.jshintrc'
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
+map <leader>e :SyntasticReset<CR>
+
 " Folding
 set foldmethod=indent
 set foldlevel=1
