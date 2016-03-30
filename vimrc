@@ -12,6 +12,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-abolish'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fugitive.vim'
 Plugin 'Solarized'
 Plugin 'chase/vim-ansible-yaml'
@@ -55,10 +56,13 @@ set directory=~/.tmp
 
 syntax on
 
+" Ensure vim is picking up the right pallet options
+set t_Co=256
+
 " Try out solarized because lots of people rave about it?
 set background=dark
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 colorscheme solarized
 
 highlight CursorLine   cterm=underline term=underline ctermbg=NONE guibg=NONE
