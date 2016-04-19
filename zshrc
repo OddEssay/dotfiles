@@ -52,6 +52,9 @@ alias rehook="cp -R ~/.git_template/hooks/* .git/hooks"
 # Shortcut to run diff-so-fancy with git
 alias dsf="git diff --color | diff-so-fancy"
 
+# Shortcut to undo all changes with git
+alias gt="git checkout -- .; git clean -df"
+
 # Run ABC Checks on ruby
 function abc() { eval "flog $@; excellent $@" }
 
