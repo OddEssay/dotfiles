@@ -12,6 +12,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-abolish'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fugitive.vim'
 Plugin 'Solarized'
 Plugin 'chase/vim-ansible-yaml'
@@ -19,6 +20,7 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'closetag.vim'
 Plugin 'cohama/lexima.vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on
@@ -55,10 +57,13 @@ set directory=~/.tmp
 
 syntax on
 
+" Ensure vim is picking up the right pallet options
+set t_Co=256
+
 " Try out solarized because lots of people rave about it?
 set background=dark
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 colorscheme solarized
 
 highlight CursorLine   cterm=underline term=underline ctermbg=NONE guibg=NONE
@@ -69,7 +74,7 @@ highlight CursorLine   cterm=underline term=underline ctermbg=NONE guibg=NONE
 
 " Make backspace behave normally
 set backspace=indent,eol,start
-  
+
 " Search settings
 set incsearch
 set hlsearch
@@ -118,10 +123,19 @@ endfunction
 map <Leader>p "*p<CR>
 
 autocmd filetype php call PHPLeaderMappings()
-autocmd filetype ruby call RubyLeaderMappings() 
+autocmd filetype ruby call RubyLeaderMappings()
 
 " vim-airline statusbar config
 set laststatus=2
+let g:airline_section_a = '%#__accent_bold#%{airline#util#wrap(airline#parts#mode(),0)}%#__restore__#%{airline#util#append(airline#parts#crypt(),0)}%{airline#util#append(airline#parts#paste(),0)}%{airline#util#append("",0)}%{airline#util#append(airline#parts#iminsert(),0)}'
+"default:let g:airline_section_b = '%{airline#util#wrap(airline#extensions#branch#get_head(),0)}'
+let g:airline_section_b = '%{fnamemodify(getcwd(),":t")}'
+"let g:airline_section_c='%<%f%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+let g:airline_section_c = '%<%f%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+"let g:airline_section_c = '%t'
+let g:airline_section_x = ''
+"default: let g:airline_section_y='%{airline#util#wrap(airline#parts#ffenc(),0)}'
+let g:airline_section_y = '%{airline#util#wrap(airline#parts#filetype(),0)}'
 
 " Better window/split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -155,7 +169,6 @@ set nofoldenable
 
 let g:lexima_enable_endwise_rules = 1
 call lexima#add_rule({'char': "<bar>", 'input_after': "<bar>", 'filetype': 'ruby'})
-
 
 " Create dirs when saving
 function s:MkNonExDir(file, buf)
