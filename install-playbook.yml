@@ -36,6 +36,7 @@
         - reattach-to-user-namespace
         - diff-so-fancy
         - sslmate
+        - node
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
@@ -59,6 +60,7 @@
         - calibre
         - xquartz
         - wireshark
+        - atom
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
