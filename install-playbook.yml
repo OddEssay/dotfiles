@@ -37,6 +37,8 @@
         - diff-so-fancy
         - sslmate
         - node
+        - nvm
+        - heroku-toolbelt
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
@@ -44,7 +46,6 @@
     - name: Install homebrew_cask items
       homebrew_cask: name={{ item }} state=present
       with_items:
-        - heroku-toolbelt
         - ngrok
         - virtualbox
         - vagrant
@@ -67,6 +68,10 @@
       with_items:
         - jshint
         - nd
+        - eslint
+        - eslint-plugin-react
+        - eslint-plugin-underscore
+        - eslint-plugin-mocha
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}

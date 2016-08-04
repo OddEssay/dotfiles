@@ -8,6 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-abolish'
 Plugin 'thoughtbot/vim-rspec'
@@ -21,9 +22,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'closetag.vim'
 Plugin 'cohama/lexima.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mxw/vim-jsx'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
-filetype plugin indent on
 
 let mapleader=" "
 
@@ -154,8 +156,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_html_validator_exec = 'tidy5'
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_javascript_jshint_args = '--config ~/.jshintrc'
+let g:syntastic_javascript_checkers = ['eslint']
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 map <leader>e :SyntasticReset<CR>
@@ -192,4 +193,11 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
+" Lanuage settings
 autocmd FileType php,ruby,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+filetype plugin indent on
+
+let g:indent_guides_auto_colors = 0 
+hi IndentGuidesOdd  ctermbg=black
+"hi IndentGuidesEven ctermbg=239
+let g:indent_guides_enable_on_vim_startup = 1
