@@ -55,7 +55,7 @@
 | -------- | ----------------------------------------------------- |
 |    p     | ***paste*** system clipboard with correct indentation |
 |    h     | Clear ***highlighted*** search results                |
-|    n     | Toggle ***numbers*** in the gutter for copy/paste etc |
+|    n     | Toggle ***numbers*** and ***marks*** in the gutter for copy/paste etc |
 
 # CtrlP
 ***Full Mappings*** :h ctrlp-mappings
@@ -80,6 +80,18 @@
 
 `:Gread`   = ***Read*** file from git (Akin to git checkout --)
 
+## Marks with Signature Plugin
+
+| Mapping           | Notes                                       | 
+|-------------------|---------------------------------------------|
+| m<letter>         | Place a ***mark***                          |
+| m<number>         | Place a Signature ***mark***                |
+| \`<letter|number> | Jump to ***mark***                          |
+| m/                | Display all alpha ***marks*** in buffer     |
+| m?                | Display all Signature ***marks*** in buffer |
+| m-                | Remove ***marks*** on line                  |
+| m<space>          | Remove all ***marks*** in buffer            |
+
 # Editing
 
 | Insert Mode Mapping   | Notes |
@@ -87,6 +99,7 @@
 | Ctrl+r = *expression* | Inserts the ***result*** of ***expression*** |
 | dit                   | ***delete*** ***inside*** HTML ***tag*** |
 |  Ctrl+_               | Close ***unclosed***  HTML tag           |
+
 ## Abolish
 | Abolish Command | Notes |
 | --------------- | ----- |

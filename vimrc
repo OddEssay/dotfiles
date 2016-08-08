@@ -24,6 +24,7 @@ Plugin 'cohama/lexima.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mxw/vim-jsx'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'kshenoy/vim-signature'
 
 call vundle#end()
 
@@ -33,7 +34,7 @@ runtime macros/matchit.vim
 
 set relativenumber
 set number
-nnoremap <Leader>n :set number! relativenumber!<CR>
+nnoremap <Leader>n :set number! relativenumber!<CR>:SignatureToggle<CR>
 
 
 set ruler
