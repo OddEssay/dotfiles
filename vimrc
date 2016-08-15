@@ -25,6 +25,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'mxw/vim-jsx'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kshenoy/vim-signature'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 
