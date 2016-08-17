@@ -56,8 +56,8 @@ set smarttab
 set scrolloff=5
 
 " Keep clutter out of the way
-set backupdir=~/.tmp
-set directory=~/.tmp
+set nobackup
+set directory=~/.tmp//
 
 syntax on
 
