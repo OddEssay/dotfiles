@@ -55,6 +55,9 @@ alias dsf="git diff --color | diff-so-fancy"
 # Shortcut to undo all changes with git
 alias gt="git checkout -- .; git clean -df"
 
+# Open a BitBucket Pull Request
+alias bbpr="open https://bitbucket.org/$(git remote -v | head -n1 | awk '{print $2}' | sed -e 's,.*:\(.*/\)\?,,' -e 's/\.git$//' | sed -e 's/.*://')/pull-requests/new\?source\=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')\&dest=develop"
+
 # Run ABC Checks on ruby
 function abc() { eval "flog $@; excellent $@" }
 
