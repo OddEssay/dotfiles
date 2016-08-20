@@ -5,30 +5,38 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Motions, Actions, Autocompletes
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-abolish'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'fugitive.vim'
-Plugin 'Solarized'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'rizzatti/dash.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'closetag.vim'
 Plugin 'cohama/lexima.vim'
+Plugin 'tpope/vim-abolish'
+" Git
+Plugin 'fugitive.vim'
+" Ansible
+Plugin 'chase/vim-ansible-yaml'
+" Documentation and Integrations
+Plugin 'scrooloose/syntastic'
+Plugin 'rizzatti/dash.vim'
+Plugin 'honza/vim-snippets'
+" Navigation and Integrations
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ctrlpvim/ctrlp.vim'
+" Theme and Toolbar
+Plugin 'Solarized'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Gutter and Guides
+Plugin 'kshenoy/vim-signature'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kshenoy/vim-signature'
-Plugin 'christoomey/vim-tmux-navigator'
+" Ruby Plugins
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'thoughtbot/vim-rspec'
+" JavaScript Plugins
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'honza/vim-snippets'
-
 call vundle#end()
 
 let mapleader=" "
@@ -199,8 +207,9 @@ endfun
 
 " Lanuage settings
 autocmd FileType php,ruby,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-filetype plugin indent on
 
+filetype plugin indent on
+" Intent guides from signature plugin
 let g:indent_guides_auto_colors = 0 
 hi IndentGuidesOdd  ctermbg=black
 "hi IndentGuidesEven ctermbg=239
