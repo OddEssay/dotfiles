@@ -19,6 +19,7 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'scrooloose/syntastic'
 Plugin 'rizzatti/dash.vim'
 Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
 " Navigation and Integrations
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -214,3 +215,11 @@ let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=black
 "hi IndentGuidesEven ctermbg=239
 let g:indent_guides_enable_on_vim_startup = 1
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
