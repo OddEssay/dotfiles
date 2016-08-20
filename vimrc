@@ -22,10 +22,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'closetag.vim'
 Plugin 'cohama/lexima.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'mxw/vim-jsx'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kshenoy/vim-signature'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
