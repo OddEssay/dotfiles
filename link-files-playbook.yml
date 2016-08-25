@@ -42,3 +42,5 @@
     - file: src={{ playbook_dir }}/bin/tat dest=/usr/local/bin/tat state=link
     - file: src={{ playbook_dir }}/tmux.conf dest=~/.tmux.conf state=link
     - shell: tmux source-file ~/.tmux.conf
+
+    - file: src={{ playbook_dir }}/UltiSnips dest=~/.vim/UltiSnips state=link

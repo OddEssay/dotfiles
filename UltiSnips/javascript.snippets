@@ -1,0 +1,66 @@
+snippet rc "React Component"
+import React from 'react';
+import autoBind from 'react-autobind';
+
+class $1 extends React.Component {
+	static displayName = '$1';
+
+	static propTypes = {
+	}
+	
+	static defaultProps = {
+	}
+
+	constructor(props) {
+		super(props);
+		autoBind(this);
+	}
+
+	render(){
+		return (
+			<${2:div}>
+				$0
+			</$2>
+		)
+	}
+}
+
+export default $1;
+endsnippet
+snippet rpic "React Pure Inline Component"
+const $1 = (props) =>{
+	return (
+		<${2:div}>
+			$0
+		</$2>
+	)
+}
+$1.propTypes = {
+
+}
+endsnippet
+snippet pt "React.PropType"
+$1: React.PropTypes.${2:string}${3:.isRequired},
+endsnippet
+snippet < "HTML Tag"
+<$1>$0</$1>
+endsnippet
+snippet rdr "Redux Reducer"
+function $1(state = {}, action){
+	switch(action.type) {
+		$0
+		default: {
+			return state;
+		}
+	}
+}
+export default $1;
+endsnippet
+snippet rdra "Redux Reducer Action"
+case '$1':{$0
+	const newState = {
+		...state
+	}
+	return newState;
+}
+endsnippet

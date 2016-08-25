@@ -18,7 +18,6 @@ Plugin 'chase/vim-ansible-yaml'
 " Documentation and Integrations
 Plugin 'scrooloose/syntastic'
 Plugin 'rizzatti/dash.vim'
-Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
 " Navigation and Integrations
 Plugin 'christoomey/vim-tmux-navigator'
