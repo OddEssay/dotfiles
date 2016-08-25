@@ -22,7 +22,6 @@
         - the_silver_searcher
         - ctags-exuberant
         - tmux
-        - brew-cask
         - tidy-html5
         - vim
         - exercism
@@ -72,6 +71,7 @@
         - eslint-plugin-react
         - eslint-plugin-underscore
         - eslint-plugin-mocha
+        - firebase-tools
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
