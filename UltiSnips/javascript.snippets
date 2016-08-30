@@ -27,6 +27,39 @@ class $1 extends React.Component {
 
 export default $1;
 endsnippet
+snippet rrdc "React with Redux Connected component"
+import React from 'react';
+import autoBind from 'react-autobind';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {$2: state.$2}
+
+class $1 extends React.Component {
+	static displayName = '$1';
+
+	static propTypes = {
+	}
+	
+	static defaultProps = {
+	}
+
+	constructor(props) {
+		super(props);
+		autoBind(this);
+	}
+
+	render(){
+		return (
+			<${3:div}>
+				$0
+			</$3>
+		)
+	}
+}
+
+export default connect(mapStateToProps)($1);
+endsnippet
+
 snippet rpic "React Pure Inline Component"
 const $1 = (props) =>{
 	return (
@@ -36,15 +69,17 @@ const $1 = (props) =>{
 	)
 }
 $1.propTypes = {
-
 }
 endsnippet
+
 snippet pt "React.PropType"
 $1: React.PropTypes.${2:string}${3:.isRequired},
 endsnippet
+
 snippet < "HTML Tag"
 <$1>$0</$1>
 endsnippet
+
 snippet rdr "Redux Reducer"
 function $1(state = {}, action){
 	switch(action.type) {
@@ -56,6 +91,7 @@ function $1(state = {}, action){
 }
 export default $1;
 endsnippet
+
 snippet rdra "Redux Reducer Action"
 case '$1':{$0
 	const newState = {
@@ -63,4 +99,30 @@ case '$1':{$0
 	}
 	return newState;
 }
+endsnippet
+
+snippet saga "Saga"
+import axios from 'axios';
+import { call, put } from 'redux-saga/effects';
+import { takeEvery } from 'redux-saga';
+import poly from 'babel-polyfill';
+
+function* fetch${1/\w+\s*/\u$0/}(action){
+  try {
+    const ${1/\w+\s*/\l$0/} = yield call(axios.get,'/v1/$3');
+    yield put({ type: '${1/\w+\s*/\U$0\E/}_FETCH_SUCCEEDED', ${1/\w+\s*/\l$0/} });
+	} catch(e) {
+	  yield put({ type: '${1/\w+\s*/\U$0\E/}_FETCH_FAILED', message: e.message });
+	}
+}
+
+function* $1Saga(){
+	yield* takeEvery('${1/\w+\s*/\U$0\E/}_FETCH_REQUESTED',fetch${1/\w+\s*/\u$0/});
+}
+
+export default $1Saga;
+endsnippet
+
+snippet log "Console Log"
+console.log($0);
 endsnippet
