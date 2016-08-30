@@ -11,6 +11,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'closetag.vim'
 Plugin 'cohama/lexima.vim'
 Plugin 'tpope/vim-abolish'
+Plugin 'terryma/vim-expand-region'
 " Git
 Plugin 'fugitive.vim'
 " Ansible
