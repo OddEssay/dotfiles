@@ -1,9 +1,9 @@
 snippet rc "React Component"
-import React from 'react';
-import autoBind from 'react-autobind';
+import React from 'react'
+import autoBind from 'react-autobind'
 
 class $1 extends React.Component {
-	static displayName = '$1';
+	static displayName = '$1'
 
 	static propTypes = {
 	}
@@ -12,8 +12,8 @@ class $1 extends React.Component {
 	}
 
 	constructor(props) {
-		super(props);
-		autoBind(this);
+		super(props)
+		autoBind(this)
 	}
 
 	render(){
@@ -25,17 +25,17 @@ class $1 extends React.Component {
 	}
 }
 
-export default $1;
+export default $1
 endsnippet
 snippet rrdc "React with Redux Connected component"
-import React from 'react';
-import autoBind from 'react-autobind';
-import { connect } from 'react-redux';
+import React from 'react'
+import autoBind from 'react-autobind'
+import { connect } from 'react-redux'
 
 const mapStateToProps = state => {$2: state.$2}
 
 class $1 extends React.Component {
-	static displayName = '$1';
+	static displayName = '$1'
 
 	static propTypes = {
 	}
@@ -44,8 +44,8 @@ class $1 extends React.Component {
 	}
 
 	constructor(props) {
-		super(props);
-		autoBind(this);
+		super(props)
+		autoBind(this)
 	}
 
 	render(){
@@ -57,7 +57,7 @@ class $1 extends React.Component {
 	}
 }
 
-export default connect(mapStateToProps)($1);
+export default connect(mapStateToProps)($1)
 endsnippet
 
 snippet rpic "React Pure Inline Component"
@@ -85,11 +85,11 @@ function $1(state = {}, action){
 	switch(action.type) {
 		$0
 		default: {
-			return state;
+			return state
 		}
 	}
 }
-export default $1;
+export default $1
 endsnippet
 
 snippet rdra "Redux Reducer Action"
@@ -97,32 +97,130 @@ case '$1':{$0
 	const newState = {
 		...state
 	}
-	return newState;
+	return newState
 }
 endsnippet
 
 snippet saga "Saga"
-import axios from 'axios';
-import { call, put } from 'redux-saga/effects';
-import { takeEvery } from 'redux-saga';
-import poly from 'babel-polyfill';
+import axios from 'axios'
+import { call, put } from 'redux-saga/effects'
+import { takeEvery } from 'redux-saga'
+import poly from 'babel-polyfill'
 
 function* fetch${1/\w+\s*/\u$0/}(action){
   try {
-    const ${1/\w+\s*/\l$0/} = yield call(axios.get,'/v1/$3');
-    yield put({ type: '${1/\w+\s*/\U$0\E/}_FETCH_SUCCEEDED', ${1/\w+\s*/\l$0/} });
+    const ${1/\w+\s*/\l$0/} = yield call(axios.get,'/v1/$3')
+    yield put({ type: '${1/\w+\s*/\U$0\E/}_FETCH_SUCCEEDED', ${1/\w+\s*/\l$0/} })
 	} catch(e) {
-	  yield put({ type: '${1/\w+\s*/\U$0\E/}_FETCH_FAILED', message: e.message });
+	  yield put({ type: '${1/\w+\s*/\U$0\E/}_FETCH_FAILED', message: e.message })
 	}
 }
 
 function* $1Saga(){
-	yield* takeEvery('${1/\w+\s*/\U$0\E/}_FETCH_REQUESTED',fetch${1/\w+\s*/\u$0/});
+	yield* takeEvery('${1/\w+\s*/\U$0\E/}_FETCH_REQUESTED',fetch${1/\w+\s*/\u$0/})
 }
 
-export default $1Saga;
+export default $1Saga
+endsnippet
+
+snippet fbsaga "Firebase Update Saga"
+import { call, put } from 'redux-saga/effects'
+import { takeEvery } from 'redux-saga'
+import 'babel-polyfill'
+
+function* update${1/\w+\s*/\u$0/}( action ){
+  try {
+    const update = data => action.ref.update(data)
+    yield call( update, action.data )
+    yield put( { type: '${1/\w+\s*/\U$0\E/}_UPDATE_SUCCEEDED' } )
+  } catch( e ) {
+    yield put( { type: '${1/\w+\s*/\U$0\E/}_UPDATE_FAILED', message: e.message } )
+  }
+}
+
+function* $1Saga(){
+  yield* takeEvery( '${1/\w+\s*/\U$0\E/}_UPDATE_REQUESTED', update${1/\w+\s*/\u$0/} )
+}
+
+export default $1Saga
+endsnippet
+
+snippet fblisten "Firebase Listener for React Class"
+  listenTo${1/\w+\s*/\u$0/}(props) {
+    if(props.auth.uid){
+      this.firebaseRefs['$1'] = firebase.database().ref(`/users/\${props.auth.uid}/$1`)
+      this.firebaseRefs['$1'].on(
+        'value',
+        snap => this.props.$1Actions.onValueSnapshot( snap )
+      )
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.auth.uid && this.props.auth.uid === null) {
+      this.listenTo${1/\w+\s*/\u$0/}(nextProps)
+    }
+  }
+endsnippet
+
+snippet fbaction "Firebase ActionCreators"
+export function onValueSnapshot( snap ) {
+  return {
+    type: '$1_ON_VALUE',
+    data: snap.val(),
+  }
+}
+
+export function update( ref, data ) {
+  return {
+    type: '$1_UPDATE_REQUESTED',
+    ref,
+    data,
+  }
+}
 endsnippet
 
 snippet log "Console Log"
-console.log($0);
+console.log($0)
 endsnippet
+
+snippet cwm "React componentWillMount()"
+componentWillMount() {
+	$0
+},
+endsnippet
+
+snippet childrenwithprops "Copy Props to React Child"
+const { children, ...otherProps } = this.props
+const childrenWithProps = React.cloneElement(
+	children,
+	{
+		...otherProps,
+	}
+)
+endsnippet
+
+snippet esoff "Disable eslint comment"
+/* eslint-disable */
+$0
+/* eslint-enable */
+endsnippet
+snippet jestsnap "jest snapshot test"
+import React from 'react'
+import renderer from 'react-test-renderer'
+import { $1 } from '../$1'
+test('$1', () => {
+  const tree = renderer.create(
+    <$1 />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+endsnippet
+
+snippet cwrp "React componentWillReceiveProps"
+componentWillReceiveProps(nextProps) {
+	$0
+}
+endsnippet
+
+snippet 

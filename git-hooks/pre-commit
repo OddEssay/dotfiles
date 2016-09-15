@@ -42,10 +42,10 @@ if [ -n "$PHP_FILES" ]; then
 fi
 if [ -n "$JS_FILES" ]; then
   echo "JSHint on $JS_FILES"
-  jshint $JS_FILES
+  eslint $JS_FILES
   if [ $? -ne 0 ]; then
     echo ""
-    echo " -== JSHint errors stopping commit ==-"
+    echo " -== eslint errors stopping commit ==-"
     exit 1
   fi
 fi

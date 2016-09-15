@@ -12,12 +12,14 @@ Plugin 'closetag.vim'
 Plugin 'cohama/lexima.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'terryma/vim-expand-region'
+Plugin 'christoomey/vim-sort-motion'
 " Git
 Plugin 'fugitive.vim'
 " Ansible
 Plugin 'chase/vim-ansible-yaml'
 " Documentation and Integrations
 Plugin 'scrooloose/syntastic'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'SirVer/ultisnips'
 " Navigation and Integrations
@@ -105,6 +107,7 @@ let g:ctrlp_use_caching = 0
 " Switch to a file it already open
 " HT: https://github.com/adarsh/dotfiles/blob/master/vim/ctrlp.vim
 let g:ctrlp_switch_buffer = 'E'
+let g:ctrlp_working_path_mode = 'ra'
 
 " RSpec.vim mappings
 function! RubyLeaderMappings()

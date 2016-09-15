@@ -71,6 +71,7 @@
         - eslint-plugin-underscore
         - eslint-plugin-mocha
         - firebase-tools
+        - greenkeeper
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
