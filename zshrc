@@ -27,7 +27,6 @@ cdpath=(~/ ~/Development ~/Development/lovefruitful)
 # export SSH_KEY_PATH="~/.ssh/dsa_id" #ssh
 
 alias ap="ansible-playbook"
-alias vim="/usr/local/Cellar/vim/7.4.944/bin/vim" # Point vim at the version I want to load
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH" #homebrew PHP Version
 alias vimrc="vim ~/dotfiles/vimrc"
 alias zshrc="vim ~/dotfiles/zshrc"
