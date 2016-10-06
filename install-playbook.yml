@@ -74,6 +74,7 @@
         - eslint-plugin-mocha
         - firebase-tools
         - greenkeeper
+        - pryjs
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
