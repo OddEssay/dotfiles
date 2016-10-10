@@ -29,6 +29,7 @@ cdpath=(~/ ~/Development ~/Development/lovefruitful)
 alias ap="ansible-playbook"
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH" #homebrew PHP Version
 alias vimrc="vim ~/dotfiles/vimrc"
+alias vi=vim
 alias zshrc="vim ~/dotfiles/zshrc"
 
 
