@@ -62,6 +62,7 @@
         - wireshark
         - atom
         - haskell-platform
+        - elm-platform
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
