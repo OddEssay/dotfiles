@@ -75,6 +75,7 @@
         - firebase-tools
         - greenkeeper
         - pryjs
+        - create-react-app
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
