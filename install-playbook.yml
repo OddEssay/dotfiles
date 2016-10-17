@@ -12,6 +12,10 @@
     - name: Clean up and update
       shell: (brew update || true) && (brew upgrade brew-cask || true) && (brew cleanup || true) && (brew cask cleanup || true) && (brew prune || true)
       ignore_errors: yes
+
+    - name: Show Hidden Folders in Finder
+      shell: defaults write com.apple.finder AppleShowAllFiles YES
+
     - name: Homebrew tap
       homebrew_tap: name={{ item }} state=present
       with_items:
