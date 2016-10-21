@@ -40,6 +40,7 @@ Plugin 'thoughtbot/vim-rspec'
 " JavaScript Plugins
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'ruanyl/vim-fixmyjs'
 call vundle#end()
 
 let mapleader=" "
@@ -227,3 +228,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Config for ruanyl/vim-fixmyjs
+let g:fixmyjs_engine = 'eslint'
+let g:fixmyjs_use_local = 1
+au BufWritePre *.js :Fixmyjs
+au BufWritePre *.jsx :Fixmyjs
