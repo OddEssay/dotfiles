@@ -9,6 +9,11 @@
     - name: If root owns /usr/local, change it to current user.
       shell: sudo chown -R $(whoami):admin /usr/local
       when: usrlocal.stat.pw_name == "root"
+
+    - name: Install XCode Command Line Tools (Error means already installed)
+      shell: xcode-select --install
+      ignore_errors: yes
+
     - name: Clean up and update
       shell: (brew update || true) && (brew upgrade brew-cask || true) && (brew cleanup || true) && (brew cask cleanup || true) && (brew prune || true)
       ignore_errors: yes
@@ -20,6 +25,7 @@
       homebrew_tap: name={{ item }} state=present
       with_items:
         - ethereum/ethereum
+
     - name: Install homebrew items
       homebrew: name={{ item }} state={{ install_state }}
       with_items:
