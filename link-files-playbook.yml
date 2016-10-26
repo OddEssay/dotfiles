@@ -13,25 +13,12 @@
     # Git Template and webhooks for autorunning ctags
     - file: path=~/.git_template state=directory
     - file: path=~/.git_template/hooks state=directory
-    
-    - file: path={{ playbook_dir }}/git-hooks/ctags state=touch mode=0744
-    - file: src={{ playbook_dir }}/git-hooks/ctags dest=~/.git_template/hooks/ctags state=link 
-
-    - file: path={{ playbook_dir }}/git-hooks/post-commit state=touch mode=0744
-    - file: src={{ playbook_dir }}/git-hooks/post-commit dest=~/.git_template/hooks/post-commit state=link 
-    
-    - file: path={{ playbook_dir }}/git-hooks/post-merge state=touch mode=0744
-    - file: src={{ playbook_dir }}/git-hooks/post-merge dest=~/.git_template/hooks/post-merge state=link
-    
-    - file: path={{ playbook_dir }}/git-hooks/post-checkout state=touch mode=0744
-    - file: src={{ playbook_dir }}/git-hooks/post-checkout dest=~/.git_template/hooks/post-checkout state=link
-    
-    - file: path={{ playbook_dir }}/git-hooks/post-rewrite state=touch mode=0744
-    - file: src={{ playbook_dir }}/git-hooks/post-rewrite dest=~/.git_template/hooks/post-rewrite state=link 
-
-    - file: path={{ playbook_dir }}/git-hooks/pre-commit state=touch mode=0744
-    - file: src={{ playbook_dir }}/git-hooks/pre-commit dest=~/.git_template/hooks/pre-commit state=link
-    
+    - file: src={{ playbook_dir }}/git-hooks/ctags dest=~/.git_template/hooks/ctags state=link mode=0744
+    - file: src={{ playbook_dir }}/git-hooks/post-commit dest=~/.git_template/hooks/post-commit state=link mode=0744
+    - file: src={{ playbook_dir }}/git-hooks/post-merge dest=~/.git_template/hooks/post-merge state=link mode=0744
+    - file: src={{ playbook_dir }}/git-hooks/post-checkout dest=~/.git_template/hooks/post-checkout state=link mode=0744
+    - file: src={{ playbook_dir }}/git-hooks/post-rewrite dest=~/.git_template/hooks/post-rewrite state=link mode=0744
+    - file: src={{ playbook_dir }}/git-hooks/pre-commit dest=~/.git_template/hooks/pre-commit state=link mode=0744
     - file: src={{ playbook_dir }}/gitconfig dest=~/.gitconfig state=link
 
     # rvm hooks
