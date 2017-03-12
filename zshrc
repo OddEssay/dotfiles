@@ -58,6 +58,12 @@ alias gt="git checkout -- .; git clean -df"
 # Open a BitBucket Pull Request
 function bbpr() { eval "open https://bitbucket.org/$(git remote -v | head -n1 | awk '{print $2}' | sed -e 's,.*:\(.*/\)\?,,' -e 's/\.git$//' | sed -e 's/.*://')/pull-requests/new\?source\=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')\&dest=develop" }
 
+
+# Open a GitHub Pull Request
+# https://github.com/sealevelresearch/vantage/compare/develop...feature/location-loading?expand=1
+
+function ghpr() {  eval "open https://github.com/$(git remote -v | head -n1 | awk '{print $2}' | sed -e 's,.*:\(.*/\)\?,,' -e 's/\.git$//' | sed -e 's/.*://')/compare/develop...$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')\?expand\=1"}
+
 # Run ABC Checks on ruby
 function abc() { eval "flog $@; excellent $@" }
 

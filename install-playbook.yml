@@ -73,6 +73,8 @@
         - atom
         - haskell-platform
         - elm-platform
+        - pharo
+        - hipchat
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
@@ -87,6 +89,7 @@
         - greenkeeper
         - pryjs
         - create-react-app
+        - modulus
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
