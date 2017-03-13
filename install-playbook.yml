@@ -49,6 +49,7 @@
         - nvm
         - heroku-toolbelt
         - terraform
+        - vagrant
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
@@ -58,7 +59,6 @@
       with_items:
         - ngrok
         - virtualbox
-        - vagrant
         - google-chrome
         - transmit
         - caffeine
