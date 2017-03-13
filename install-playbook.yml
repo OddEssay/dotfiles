@@ -49,13 +49,12 @@
         - nvm
         - heroku-toolbelt
         - terraform
-        - vagrant
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
 
     - name: Install homebrew_cask items
-      homebrew_cask: name={{ item }} state=present
+      homebrew_cask: name={{ item }} state={{ install_state }}
       with_items:
         - ngrok
         - virtualbox
@@ -75,6 +74,7 @@
         - elm-platform
         - pharo
         - hipchat
+        - vagrant
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
