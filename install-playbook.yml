@@ -75,6 +75,7 @@
         - pharo
         - hipchat
         - vagrant
+      ignore_errors: true
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
@@ -89,6 +90,7 @@
         - greenkeeper
         - pryjs
         - create-react-app
+        - kill-tabs
         - modulus
 
     - name: Install Gems
@@ -99,3 +101,17 @@
         - excellent
         - lolcommits
         - gemrat
+
+    - name: Install Vundle for vim plugins
+      git:
+        repo: https://github.com/VundleVim/Vundle.vim.git
+        dest: ~/.vim/bundle/Vundle.vim
+    - name: Ensure all vim plugin's are installed
+      shell: vim +PluginInstall +qall
+
+    - name: Setup User Crontab
+      cron:
+        name: 'Kill Chrome Tabs to avoid memory overkill'
+        minute: '0'
+        hour: '6,18'
+        job: 'kill-tabs > /dev/null'

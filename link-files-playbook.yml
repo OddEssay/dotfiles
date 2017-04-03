@@ -30,4 +30,5 @@
     - file: src={{ playbook_dir }}/tmux.conf dest=~/.tmux.conf state=link
     - shell: tmux source-file ~/.tmux.conf
 
+    - file: dest=~/.vim state=directory
     - file: src={{ playbook_dir }}/UltiSnips dest=~/.vim/UltiSnips state=link
