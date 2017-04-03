@@ -88,6 +88,7 @@
         - greenkeeper
         - pryjs
         - create-react-app
+        - kill-tabs
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
@@ -104,3 +105,10 @@
         dest: ~/.vim/bundle/Vundle.vim
     - name: Ensure all vim plugin's are installed
       shell: vim +PluginInstall +qall
+
+    - name: Setup User Crontab
+      cron:
+        name: 'Kill Chrome Tabs to avoid memory overkill'
+        minute: '0'
+        hour: '6,18'
+        job: 'kill-tabs > /dev/null'
