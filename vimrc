@@ -25,6 +25,7 @@ Plugin 'SirVer/ultisnips'
 " Navigation and Integrations
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
 " Theme and Toolbar
 Plugin 'Solarized'
 Plugin 'bling/vim-airline'
@@ -234,3 +235,9 @@ let g:fixmyjs_engine = 'eslint'
 let g:fixmyjs_use_local = 1
 au BufWritePre *.js :Fixmyjs
 au BufWritePre *.jsx :Fixmyjs
+
+" Open NERDTree if vim is open with no file
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Map b to toggle browsing with NERDTree
+nnoremap <Leader>b :NERDTreeToggle<CR>

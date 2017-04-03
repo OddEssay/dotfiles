@@ -54,11 +54,10 @@
       shell: brew link --force openssl
 
     - name: Install homebrew_cask items
-      homebrew_cask: name={{ item }} state=present
+      homebrew_cask: name={{ item }} state={{ install_state }}
       with_items:
         - ngrok
         - virtualbox
-        - vagrant
         - google-chrome
         - transmit
         - caffeine
@@ -73,6 +72,9 @@
         - atom
         - haskell-platform
         - elm-platform
+        - pharo
+        - hipchat
+        - vagrant
       ignore_errors: true
 
     - name: Install Global NPM items
@@ -89,6 +91,7 @@
         - pryjs
         - create-react-app
         - kill-tabs
+        - modulus
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
