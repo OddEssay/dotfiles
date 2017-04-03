@@ -73,6 +73,7 @@
         - atom
         - haskell-platform
         - elm-platform
+      ignore_errors: true
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
@@ -96,3 +97,10 @@
         - excellent
         - lolcommits
         - gemrat
+
+    - name: Install Vundle for vim plugins
+      git:
+        repo: https://github.com/VundleVim/Vundle.vim.git
+        dest: ~/.vim/bundle/Vundle.vim
+    - name: Ensure all vim plugin's are installed
+      shell: vim +PluginInstall +qall
