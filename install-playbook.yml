@@ -49,6 +49,7 @@
         - nvm
         - heroku-toolbelt
         - terraform
+        - mercurial
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
@@ -75,6 +76,7 @@
         - pharo
         - hipchat
         - vagrant
+        - docker
       ignore_errors: true
 
     - name: Install Global NPM items
