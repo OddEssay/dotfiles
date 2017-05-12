@@ -93,7 +93,9 @@
         - pryjs
         - create-react-app
         - kill-tabs
-        - modulus
+        - yarn
+        - cordova
+        - flow-bin
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
@@ -116,4 +118,4 @@
         name: 'Kill Chrome Tabs to avoid memory overkill'
         minute: '0'
         hour: '6,18'
-        job: 'kill-tabs > /dev/null'
+        job: '/usr/local/bin/kill-tabs > /dev/null'
