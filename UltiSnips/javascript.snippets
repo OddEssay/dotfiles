@@ -1,3 +1,15 @@
+snippet stories "React Storybook Stories"
+import React from 'react'
+import { storiesOf } from '@kadira/storybook'
+import { text } from '@kadira/storybook-addon-knobs'
+import $1 from './$2'
+
+storiesOf( '$1', module )
+	.add( 'default', () => {
+		const textKnob = text( '$1 content', 'Some text' )
+		return <$1>{ textKnob }</$1>
+	} )
+endsnippet
 snippet rc "React Component"
 import React from 'react'
 import autoBind from 'react-autobind'
