@@ -31,7 +31,7 @@ export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH" #homebrew PHP Versio
 alias vimrc="vim ~/dotfiles/vimrc"
 alias vi=vim
 alias zshrc="vim ~/dotfiles/zshrc"
-
+alias ls='ls -lahGP'
 
 # Shortcut to run vagrant ssh -c in the right context
 function vudo() { eval "vagrant ssh -c \"cd /vagrant && $@\"" }
