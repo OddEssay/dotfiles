@@ -20,7 +20,7 @@ export PATH="/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/b
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Make navigation around my main file paths easier
-cdpath=(~/ ~/Development ~/Development/lovefruitful)
+cdpath=(~/ ~/Development ~/Development/lovefruitful ~/Development/yozu)
 
 # export LANG=en_US.UTF-8
 
