@@ -5,7 +5,8 @@
     - file: src={{ playbook_dir }}/agignore dest=~/.agignore state=link
     - file: src={{ playbook_dir }}/vimrc dest=~/.vimrc state=link
     - file: src={{ playbook_dir }}/zshrc dest=~/.zshrc state=link
-    - file: src={{ playbook_dir }}/jshintrc dest=~/.jshintrc state=link
+    - file: src={{ playbook_dir }}/jshintrc dest=~/.jshintrc state=absent
+    - file: src={{ playbook_dir }}/eslintrc.js dest=~/.eslintrc.js state=link
 
     # Give me a tmp directory
     - file: path=~/.tmp state=directory

@@ -41,7 +41,7 @@ if [ -n "$PHP_FILES" ]; then
   done
 fi
 if [ -n "$JS_FILES" ]; then
-  echo "JSHint on $JS_FILES"
+  echo "ESLint on $JS_FILES"
   eslint $JS_FILES
   if [ $? -ne 0 ]; then
     echo ""
