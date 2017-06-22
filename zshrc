@@ -9,7 +9,7 @@ export UPDATE_ZSH_DAYS=5
 # COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy" # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 
-plugins=(git osx vagrant rails) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(git osx vagrant rails tmuxinator) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/terminal-colours.sh
@@ -32,6 +32,8 @@ alias vimrc="vim ~/dotfiles/vimrc"
 alias vi=vim
 alias zshrc="vim ~/dotfiles/zshrc"
 alias ls='ls -lahGP'
+alias tm='tmuxinator'
+alias tms='tmuxinator start'
 
 # Shortcut to run vagrant ssh -c in the right context
 function vudo() { eval "vagrant ssh -c \"cd /vagrant && $@\"" }
