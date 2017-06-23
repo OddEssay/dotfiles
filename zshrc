@@ -27,7 +27,6 @@ cdpath=(~/ ~/Development ~/Development/lovefruitful ~/Development/yozu)
 # export SSH_KEY_PATH="~/.ssh/dsa_id" #ssh
 
 alias ap="ansible-playbook"
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH" #homebrew PHP Version
 alias vimrc="vim ~/dotfiles/vimrc"
 alias vi=vim
 alias zshrc="vim ~/dotfiles/zshrc"
