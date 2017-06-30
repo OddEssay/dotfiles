@@ -115,8 +115,7 @@ endsnippet
 
 snippet saga "Saga"
 import axios from 'axios'
-import { call, put } from 'redux-saga/effects'
-import { takeEvery } from 'redux-saga'
+import { call, put, takeEvery } from 'redux-saga/effects'
 import poly from 'babel-polyfill'
 
 function* fetch${1/\w+\s*/\u$0/}( action ) {
@@ -129,7 +128,7 @@ function* fetch${1/\w+\s*/\u$0/}( action ) {
 }
 
 function* $1Saga() {
-	yield* takeEvery( '${1/\w+\s*/\U$0\E/}_FETCH_REQUESTED', fetch${1/\w+\s*/\u$0/} )
+	yield takeEvery( '${1/\w+\s*/\U$0\E/}_FETCH_REQUESTED', fetch${1/\w+\s*/\u$0/} )
 }
 
 export default $1Saga
@@ -234,6 +233,19 @@ test('$1', () => {
 })
 endsnippet
 
+snippet jestselector "Jest Test"
+import React from 'react'
+import * as $1Selectors from './$2'
+import mockState from '../mockState.json'
+
+test('$1', () => {
+	const mockProps = {
+
+	}
+	expect($1Selectors.$3(mockState, mockProps)).toBe($4)
+} )
+endsnippet
+
 snippet cwrp "React componentWillReceiveProps"
 componentWillReceiveProps( nextProps ) {
 	$0
@@ -250,4 +262,8 @@ const mapStateToProps = ( state, props ) => ( {
 const mapDispatchToProps = dispatch => ( {
 } )
 connect( mapStateToProps, mapDispatchToProps )
+endsnippet
+
+snippet sui "Import Semantic UI React"
+import { $0 } from 'semantic-ui-react'
 endsnippet
