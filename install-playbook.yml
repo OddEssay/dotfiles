@@ -51,6 +51,12 @@
         - terraform
         - mercurial
 
+    - name: Install Oh My ZSH
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      args:
+        creates: ~/.oh-my-zsh/oh-my-zsh.sh
+
+
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
 
@@ -77,6 +83,7 @@
         - hipchat
         - vagrant
         - docker
+        - omnifocus
       ignore_errors: true
 
     - name: Install Global NPM items
@@ -89,13 +96,16 @@
         - eslint-plugin-underscore
         - eslint-plugin-mocha
         - firebase-tools
-        - greenkeeper
         - pryjs
         - create-react-app
-        - kill-tabs
         - yarn
         - cordova
         - flow-bin
+
+    - name: Install RVM
+      shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB; \curl -sSL https://get.rvm.io | bash -s stable; source ~/.rvm/scripts/rvm
+      args:
+        creates: ~/.rvm
 
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
@@ -113,9 +123,14 @@
     - name: Ensure all vim plugin's are installed
       shell: vim +PluginInstall +qall
 
-    - name: Setup User Crontab
-      cron:
-        name: 'Kill Chrome Tabs to avoid memory overkill'
-        minute: '0'
-        hour: '6,18'
-        job: '/usr/local/bin/kill-tabs > /dev/null'
+    - name: Grab a copy of Powerline patched fonts
+      git:
+        repo: https://github.com/powerline/fonts.git
+        dest: ~/dotfiles/fonts
+
+    - name: Copy Source Code Pro font to ~/Library/Fonts
+      copy:
+        src: ~/dotfiles/fonts/SourceCodePro/
+        dest: ~/Library/Fonts
+
+

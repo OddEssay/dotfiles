@@ -83,10 +83,9 @@ set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme solarized
+silent! colorscheme solarized
 
 highlight CursorLine   cterm=underline term=underline ctermbg=NONE guibg=NONE
-
 "
 " sensible vim settings
 "
@@ -187,7 +186,7 @@ set foldnestmax=10
 set nofoldenable
 
 let g:lexima_enable_endwise_rules = 1
-call lexima#add_rule({'char': "<bar>", 'input_after': "<bar>", 'filetype': 'ruby'})
+silent! call lexima#add_rule({'char': "<bar>", 'input_after': "<bar>", 'filetype': 'ruby'})
 
 " Create dirs when saving
 function s:MkNonExDir(file, buf)
