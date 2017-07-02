@@ -4,7 +4,7 @@
   tasks:
     - file: src={{ playbook_dir }}/agignore dest=~/.agignore state=link
     - file: src={{ playbook_dir }}/vimrc dest=~/.vimrc state=link
-    - file: src={{ playbook_dir }}/zshrc dest=~/.zshrc state=link
+    - file: src={{ playbook_dir }}/zshrc dest=~/.zshrc state=link force=true
     - file: src={{ playbook_dir }}/jshintrc dest=~/.jshintrc state=absent
     - file: src={{ playbook_dir }}/eslintrc.js dest=~/.eslintrc.js state=link
 
@@ -29,7 +29,7 @@
     # tmux attach from Thoughtbot
     - file: src={{ playbook_dir }}/bin/tat dest=/usr/local/bin/tat state=link
     - file: src={{ playbook_dir }}/tmux.conf dest=~/.tmux.conf state=link
-    - shell: tmux source-file ~/.tmux.conf
+      #    - shell: tmux source-file ~/.tmux.conf
 
     - file: dest=~/.vim state=directory
     - file: src={{ playbook_dir }}/UltiSnips dest=~/.vim/UltiSnips state=link
