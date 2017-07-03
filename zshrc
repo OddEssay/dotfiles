@@ -9,7 +9,7 @@ export UPDATE_ZSH_DAYS=5
 # COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy" # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 
-plugins=(git osx vagrant rails tmuxinator) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(git osx vagrant rails tmuxinator docker) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/terminal-colours.sh
