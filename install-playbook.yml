@@ -85,6 +85,7 @@
         - vagrant
         - docker
         - omnifocus
+        - textexpander
       ignore_errors: true
 
     - name: Install Global NPM items
