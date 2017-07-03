@@ -50,6 +50,7 @@
         - heroku-toolbelt
         - terraform
         - mercurial
+        - mysql
 
     - name: Install Oh My ZSH
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
