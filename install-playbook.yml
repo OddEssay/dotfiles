@@ -85,6 +85,7 @@
         - vagrant
         - docker
         - omnifocus
+        - slack
       ignore_errors: true
 
     - name: Install Global NPM items
@@ -117,6 +118,7 @@
         - excellent
         - lolcommits
         - gemrat
+        - rails
 
     - name: Install Vundle for vim plugins
       git:
