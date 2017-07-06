@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  vars:
+    repos:
+      - { repo: 'git@bitbucket.org:vpcltd/tap-bookkeeping.git', dest: '~/development/yozu/tap-bookkeeping' }
+      - { repo: 'git@bitbucket.org:vpcltd/ansible.git', dest: '~/development/yozu/ansible' }
+      - { repo: 'git@bitbucket.org:vpcltd/pandle-mobile-app.git', dest: '~/development/yozu/pandle-mobile-app' }
+  tasks:
+    - name: Grab git repos
+      git:
+        repo: "{{ item.repo }}"
+        dest: "{{ item.dest }}"
+      with_items:
+        - "{{ repos }}"

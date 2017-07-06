@@ -86,6 +86,7 @@
         - docker
         - omnifocus
         - slack
+        - textexpander
       ignore_errors: true
 
     - name: Install Global NPM items
