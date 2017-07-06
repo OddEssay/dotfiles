@@ -1,7 +1,7 @@
 # ~/.tmuxinator/psr-mobile-app.yml
 
 name: psr-mobile-app
-root: ~/development/psr-mobile-app
+root: ~/development/yozu/psr-mobile-app
 
 # Runs before everything. Use it to start daemons etc.
 # pre: sudo /etc/rc.d/mysqld start
