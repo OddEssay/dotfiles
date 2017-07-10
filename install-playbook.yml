@@ -99,6 +99,8 @@
         - eslint-config-react-app
         - eslint-plugin-underscore
         - eslint-plugin-mocha
+        - eslint-plugin-import
+        - eslint-plugin-flowtype
         - firebase-tools
         - pryjs
         - create-react-app
