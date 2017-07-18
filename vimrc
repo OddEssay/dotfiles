@@ -240,3 +240,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Map b to toggle browsing with NERDTree
 nnoremap <Leader>b :NERDTreeToggle<CR>
+
+" Use Enter to add a line below and shift enter to add line above
+nmap <S-Enter> O<Esc>j
+nmap <CR> o<Esc>k
