@@ -1,0 +1,27 @@
+# ~/.tmuxinator/psr-mobile-app.yml
+
+name: psr-wms-rails
+root: ~/development/yozu/psr-wms
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: editor
+
+# Specitifes (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+# startup_pane: 1
+
+windows:
+  - editor:
+      layout: tiled
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        -
+        -
+        -
+        -
+  - server: vagrant up; rails s

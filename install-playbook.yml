@@ -101,6 +101,8 @@
         - eslint-plugin-mocha
         - eslint-plugin-import
         - eslint-plugin-flowtype
+        - eslint-plugin-jsx-a11y
+        - babel-eslint
         - firebase-tools
         - pryjs
         - create-react-app
