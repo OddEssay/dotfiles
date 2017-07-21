@@ -36,7 +36,7 @@
         - vim
         - exercism
         - tree
-        - ethereum
+          #        - ethereum
         - gs
         - postgresql
         - openssl
@@ -62,7 +62,7 @@
       shell: brew link --force openssl
 
     - name: Install homebrew_cask items
-      homebrew_cask: name={{ item }} state={{ install_state }}
+      homebrew_cask: name={{ item }} state=present
       with_items:
         - ngrok
         - virtualbox
