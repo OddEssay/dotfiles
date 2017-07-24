@@ -7,6 +7,7 @@
     - file: src={{ playbook_dir }}/zshrc dest=~/.zshrc state=link force=true
     - file: src={{ playbook_dir }}/jshintrc dest=~/.jshintrc state=absent
     - file: src={{ playbook_dir }}/eslintrc.js dest=~/.eslintrc.js state=link
+    - file: src={{ playbook_dir }}/ansible.cfg dest=~/.ansible.cfg state=link
 
     # Give me a tmp directory
     - file: path=~/.tmp state=directory
