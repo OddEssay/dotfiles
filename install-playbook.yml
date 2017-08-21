@@ -68,11 +68,9 @@
         - ngrok
         - virtualbox
         - google-chrome
-        - transmit
         - caffeine
         - rescuetime
         - dropbox
-        - moom
         - jeromelebel-mongohub
         - sqlitebrowser
         - calibre
@@ -88,6 +86,7 @@
         - omnifocus
         - slack
         - textexpander
+        - spotify
       ignore_errors: true
 
     - name: Install Global NPM items
