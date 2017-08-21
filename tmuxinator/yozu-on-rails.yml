@@ -1,0 +1,18 @@
+# ~/.tmuxinator/yozu-on-rails.yml
+
+name: yozu-on-rails
+root: ~/development/yozu/yozu-on-rails
+
+windows:
+  - editor:
+      layout: tiled
+      panes:
+        - 
+        -
+        -
+        -
+  - rails:
+      layout: tiled
+      panes:
+        - vagrant up; rails s
+        -
