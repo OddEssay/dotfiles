@@ -54,7 +54,17 @@ alias rehook="cp -R ~/.git_template/hooks/* .git/hooks"
 alias dsf="git diff --color | diff-so-fancy"
 
 # Shortcut to undo all changes with git
-alias gt="git checkout -- .; git clean -df"
+function gt() {
+  read "dogt?Remove all untracked files and undo all uncommited changes?"
+
+  if [[ "$dogt" =~ ^[Yy]$ ]]
+  then
+    eval "git checkout -- .; git clean -df"
+    echo 'git Tidy complete'
+  else
+    echo 'Aborted'
+  fi
+}
 
 # Open a BitBucket Pull Request
 function bbpr() { eval "open https://bitbucket.org/$(git remote -v | head -n1 | awk '{print $2}' | sed -e 's,.*:\(.*/\)\?,,' -e 's/\.git$//' | sed -e 's/.*://')/pull-requests/new\?source\=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')\&dest=develop" }
