@@ -145,4 +145,6 @@
         src: ~/dotfiles/fonts/SourceCodePro/
         dest: ~/Library/Fonts
 
+    - name: Reindex Spotlight Metadata
+      shell: sudo mdutil -E /
 
