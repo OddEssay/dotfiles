@@ -87,6 +87,7 @@
         - slack
         - textexpander
         - spotify
+        - bartender
       ignore_errors: true
 
     - name: Install Global NPM items
