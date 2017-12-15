@@ -17,6 +17,7 @@ Plugin 'christoomey/vim-sort-motion'
 Plugin 'fugitive.vim'
 " Ansible
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'phenomenes/ansible-snippets'
 " Documentation and Integrations
 Plugin 'scrooloose/syntastic'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
