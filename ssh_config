@@ -1,0 +1,11 @@
+Host *
+ ServerAliveInterval 60
+Host yozu
+  HostName yozu.co.uk
+  User pbennettfreeman
+Host mva
+  HostName minimum-viable-automation.com
+  User paul
+Host ff
+  HostName fordfueloils.co.uk
+  User paul
