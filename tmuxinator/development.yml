@@ -1,0 +1,13 @@
+# ~/.tmuxinator/development.yml
+
+name: development
+root: ~/development
+
+windows:
+  - editor:
+      layout: tiled
+      panes:
+        - 
+        -
+        -
+        -
