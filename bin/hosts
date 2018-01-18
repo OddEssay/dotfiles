@@ -1,0 +1,41 @@
+#!/usr/bin/python
+# https://gist.github.com/OddEssay/1eba11ea0ccc594c6a3caf31eb79c25e
+# Based on https://gist.github.com/sivel/3c0745243787b9899486
+import sys
+import json
+import os
+
+from ansible.parsing.dataloader import DataLoader
+
+try:
+    from ansible.inventory.manager import InventoryManager
+    A24 = True
+except ImportError:
+    from ansible.vars import VariableManager
+    from ansible.inventory import Inventory
+    A24 = False
+
+loader = DataLoader()
+
+hosts_file_name = os.getenv('LOCAL_ANSIBLE_HOSTS', 'hosts')
+hosts_for_current_dir = os.getcwd() + "/" + hosts_file_name
+
+if A24:
+    inventory = InventoryManager(loader, [ hosts_for_current_dir ])
+    inventory.parse_sources()
+else:
+    variable_manager = VariableManager()
+    inventory = Inventory(loader, variable_manager, hosts_for_current_dir)
+    inventory.parse_inventory(inventory.host_list)
+
+out = {'_meta': {'hostvars': {}}}
+for group in inventory.groups.values():
+    out[group.name] = {
+        'hosts': [h.name for h in group.hosts],
+        'vars': group.vars,
+        'children': [c.name for c in group.child_groups]
+    }
+for host in inventory.get_hosts():
+    out['_meta']['hostvars'][host.name] = host.vars
+
+print(json.dumps(out, indent=4, sort_keys=True))

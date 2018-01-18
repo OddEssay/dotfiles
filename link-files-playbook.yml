@@ -9,6 +9,8 @@
     - file: src={{ playbook_dir }}/eslintrc.js dest=~/.eslintrc.js state=link
     - file: src={{ playbook_dir }}/ansible.cfg dest=~/.ansible.cfg state=link
     - file: src={{ playbook_dir }}/ssh_config dest=~/.ssh/config state=link
+    - file: src={{ playbook_dir }}/bin/hosts dest=/etc/ansible/hosts state=link force=true
+      become: yes
 
     # Give me a tmp directory
     - file: path=~/.tmp state=directory
