@@ -1,14 +1,27 @@
 ---
 - hosts: localhost
-  sudo: no
+  become: no
+  become_user: root
   vars: 
     install_state: present # Override with: --extra-vars "install_state=latest"
   tasks:
     - stat: path=/usr/local
       register: usrlocal
-    - name: If root owns /usr/local, change it to current user.
-      shell: sudo chown -R $(whoami):admin /usr/local
-      when: usrlocal.stat.pw_name == "root"
+    - name: "Ensure /usr/local is owned by the current user {{ ansible_user_id }}"
+      file:
+        path: "{{ item }}"
+        state: directory
+        recurse: yes
+        owner: "{{ ansible_user_id }}"
+      become: yes
+      with_items:
+        - /usr/local/Cellar
+        - /usr/local/Homebrew
+        - /usr/local/Frameworks
+        - /usr/local/include
+        - /usr/local/opt
+        - /usr/local/share/zsh
+        - /usr/local/share/zsh/site-functions
 
     - name: Install XCode Command Line Tools (Error means already installed)
       shell: xcode-select --install
@@ -26,7 +39,7 @@
       with_items:
         - ethereum/ethereum
 
-    - name: Install homebrew items
+    - name: Install homebrew items with brew install
       homebrew: name={{ item }} state={{ install_state }}
       with_items:
         - the_silver_searcher
@@ -54,6 +67,9 @@
         - elixir
         - vips
         - mosh
+        - asciinema
+        - watch
+        - watchman
 
     - name: Install Oh My ZSH
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -116,6 +132,7 @@
         - gitbook-cli
         - gatsby-cli
         - ios-deploy
+        - git-recall
 
     - name: Install RVM
       shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB; \curl -sSL https://get.rvm.io | bash -s stable; source ~/.rvm/scripts/rvm
