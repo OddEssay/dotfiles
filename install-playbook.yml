@@ -34,10 +34,10 @@
     - name: Show Hidden Folders in Finder
       shell: defaults write com.apple.finder AppleShowAllFiles YES
 
-    - name: Homebrew tap
-      homebrew_tap: name={{ item }} state=present
-      with_items:
-        - ethereum/ethereum
+      #- name: Homebrew tap
+      # homebrew_tap: name={{ item }} state=present
+      # with_items:
+      #  - ethereum/ethereum
 
     - name: Install homebrew items with brew install
       homebrew: name={{ item }} state={{ install_state }}
@@ -47,9 +47,9 @@
         - tmux
         - tidy-html5
         - vim
+        - neovim
         - exercism
         - tree
-          #        - ethereum
         - gs
         - postgresql
         - openssl
@@ -70,6 +70,7 @@
         - asciinema
         - watch
         - watchman
+        - openconnect
 
     - name: Install Oh My ZSH
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -83,21 +84,19 @@
     - name: Install homebrew_cask items
       homebrew_cask: name={{ item }} state=present
       with_items:
+        - openconnect-gui
         - ngrok
         - virtualbox
         - google-chrome
         - caffeine
         - rescuetime
         - dropbox
-        - jeromelebel-mongohub
         - sqlitebrowser
-        - calibre
         - xquartz
         - wireshark
         - atom
         - haskell-platform
         - elm-platform
-        - pharo
         - hipchat
         - vagrant
         - docker
