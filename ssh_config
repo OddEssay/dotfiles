@@ -9,3 +9,25 @@ Host mva
 Host ff
   HostName fordfueloils.co.uk
   User paul
+
+Host instance-1
+  HostName 35.189.82.66
+  User ansible
+  IdentityFile ~/.ssh/ansible_key
+
+Host *.gcs.local
+  User pbennettfreeman
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+
+Host *.gc.pandle.co.uk
+  User pbennettfreeman
+
+Host a1
+  HostName 35.189.92.240
+  User pbennettfreeman
+
+Host a2
+  HostName 35.189.124.133 
+  User pbennettfreeman
+
