@@ -1,3 +1,4 @@
+echo 'READING zshrc'
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -92,3 +93,17 @@ zstyle ':completion:*' matcher-list '' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
 alias psg="ps aux | grep"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/paul/Dropbox/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/paul/Dropbox/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/paul/Dropbox/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/paul/Dropbox/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Pandle Development aliases for docker Database
+alias pdev="RAILS_ENV=development DATABASE_URL=mysql2://root@127.0.0.1:3306/tapbk_developement bundle exec"
+alias ptest="RAILS_ENV=test DATABASE_URL=mysql2://root@127.0.0.1:3306/tapbk_test bundle exec"
+
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=~/Dropbox/Downloads/flutter/bin:$PATH
