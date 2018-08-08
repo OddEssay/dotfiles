@@ -1,5 +1,5 @@
 [push]
-	default = simple
+	default = current
 [user]
 	email = clicknmix@gmail.com
 	name = Paul Bennett-Freeman
