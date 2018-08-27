@@ -32,6 +32,7 @@
       ignore_errors: yes
       tags:
         - homebrew
+
         - apps
 
     - name: Show Hidden Folders in Finder
@@ -75,6 +76,8 @@
         - watch
         - watchman
         - openconnect
+        - bat
+
 
     - name: Install Oh My ZSH
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
