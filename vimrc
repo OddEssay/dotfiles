@@ -43,6 +43,9 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'ruanyl/vim-fixmyjs'
+" Elixir
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
 call vundle#end()
 
 let mapleader=" "

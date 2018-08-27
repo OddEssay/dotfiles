@@ -15,7 +15,7 @@
 # If there is a Gemfile.lock and Vagrantfile, run bundler in the VM
 [ -e Gemfile.lock ] && [ -e Vagrantfile ] && vagrant ssh -c "cd /vagrant; bundle install" || true
 # Run bundler on host if there is a Gemfile
-[ -e Gemfile.lock ] && bundle install || true
+#[ -e Gemfile.lock ] && bundle install || true
 
 # JS: Make sure if we are using yarn, any missing node_modules are installed
 [ -e yarn.lock ] && yarn install || true 
