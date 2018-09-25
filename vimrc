@@ -227,8 +227,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-a>"
-let g:UltiSnipsJumpForwardTrigger="<c-d>"
-let g:UltiSnipsJumpBackwardTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetsDir="~/dotfiles/UltiSnips"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
