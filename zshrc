@@ -104,6 +104,7 @@ if [ -f '/Users/paul/Dropbox/Downloads/google-cloud-sdk/completion.zsh.inc' ]; t
 alias pdev="RAILS_ENV=development DATABASE_URL=mysql2://root@127.0.0.1:3306/tapbk_developement bundle exec"
 alias ptest="RAILS_ENV=test DATABASE_URL=mysql2://root@127.0.0.1:3306/tapbk_test bundle exec"
 
+alias dc="docker-compose"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=~/Dropbox/Downloads/flutter/bin:$PATH
