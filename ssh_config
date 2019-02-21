@@ -30,4 +30,32 @@ Host a1
 Host a2
   HostName 35.189.124.133 
   User pbennettfreeman
+Host 148.252.225.35
+  HostName 148.252.225.35
+  User yozu
 
+Host patchwork.bb
+  User git
+  HostName bitbucket.org
+  IdentityFile ~/.ssh/patchwork
+
+Host *.eu-west-2.compute.amazonaws.com
+  IdentityFile ~/.ssh/citrus.pem
+  User ec2-user
+
+Host jump.patchwork.health
+  IdentityFile ~/.ssh/patchwork-developers.pem
+  User ubuntu
+
+Host 35.178.220.190
+  IdentityFile ~/.ssh/patchwork-developers.pem
+  User ubuntu
+Host test.rpa.patchwork.health
+  IdentityFile ~/.ssh/patchwork-developers.pem
+  User ubuntu
+Host api.rpa.patchwork.health
+  IdentityFile ~/.ssh/patchwork-developers.pem
+  User ubuntu
+Host insights.patchwork.health
+  IdentityFile ~/.ssh/patchwork-developers.pem
+  User ubuntu

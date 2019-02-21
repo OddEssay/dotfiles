@@ -1,8 +1,7 @@
-echo 'READING zshrc'
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="dstufft" # Look in ~/.oh-my-zsh/themes/
+ZSH_THEME="spaceship" # Look in ~/.oh-my-zsh/themes/
 
 export UPDATE_ZSH_DAYS=5
 
@@ -10,14 +9,14 @@ export UPDATE_ZSH_DAYS=5
 # COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy" # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 
-plugins=(git osx vagrant rails tmuxinator docker mix) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(git osx vagrant rails tmuxinator docker mix k) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/terminal-colours.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:~/npm/bin:~/npm/lib/node_modules"
+export PATH="/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Make navigation around my main file paths easier
@@ -105,31 +104,9 @@ alias pdev="RAILS_ENV=development DATABASE_URL=mysql2://root@127.0.0.1:3306/tapb
 alias ptest="RAILS_ENV=test DATABASE_URL=mysql2://root@127.0.0.1:3306/tapbk_test bundle exec"
 
 alias dc="docker-compose"
+alias dr="docker run --rm --interactive --tty"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=~/Dropbox/Downloads/flutter/bin:$PATH
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+source /Users/paul/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='bg=0,fg=8'

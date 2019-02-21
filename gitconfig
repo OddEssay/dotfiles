@@ -8,6 +8,7 @@
 	eol = lf
 	fileMode = false
 	editor = vim
+	hooksPath = /Users/paul/dotfiles/git-hooks
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

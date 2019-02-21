@@ -35,6 +35,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kshenoy/vim-signature'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'thiagoalessio/rainbow_levels.vim' 
 " Ruby Plugins
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -249,3 +250,6 @@ nnoremap <Leader>b :NERDTreeToggle<CR>
 " Use Enter to add a line below and shift enter to add line above
 nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
+
+" Use <leader> r to toggle RainbowLevels
+nnoremap <Leader>r :RainbowLevelsToggle<CR>
