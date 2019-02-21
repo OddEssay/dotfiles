@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
-  sudo: no
   tasks:
     - file: src={{ playbook_dir }}/agignore dest=~/.agignore state=link
     - file: src={{ playbook_dir }}/vimrc dest=~/.vimrc state=link
@@ -10,7 +9,6 @@
     - file: src={{ playbook_dir }}/ansible.cfg dest=~/.ansible.cfg state=link
     - file: src={{ playbook_dir }}/ssh_config dest=~/.ssh/config state=link
     - file: src={{ playbook_dir }}/bin/hosts dest=/etc/ansible/hosts state=link force=true
-      become: yes
 
     # Give me a tmp directory
     - file: path=~/.tmp state=directory
@@ -40,3 +38,6 @@
 
     # tmuxinator config directory
     - file: src={{ playbook_dir }}/tmuxinator dest=~/.tmuxinator state=link
+       
+    # Rubocop Config
+    - file: src={{ playbook_dir }}/rubocop.yml dest=~/.rubocop.yml state=link force=true

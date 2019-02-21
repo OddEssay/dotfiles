@@ -27,16 +27,17 @@
       shell: xcode-select --install
       ignore_errors: yes
 
-    - name: Clean up and update
+    - name: Clean up and update Homebrew to avoid common errors with out of date caches etc
       shell: (brew update || true) && (brew upgrade brew-cask || true) && (brew cleanup || true) && (brew cask cleanup || true) && (brew prune || true)
       ignore_errors: yes
       tags:
         - homebrew
-
         - apps
+        - clean
 
     - name: Show Hidden Folders in Finder
       shell: defaults write com.apple.finder AppleShowAllFiles YES
+      tags: macos
 
       #- name: Homebrew tap
       # homebrew_tap: name={{ item }} state=present
@@ -47,27 +48,22 @@
       homebrew: name={{ item }} state={{ install_state }}
       tags: homebrew
       with_items:
-        - the_silver_searcher
+        - the_silver_searcher # ag, for faster searching of files in the CLI
         - ctags-exuberant
         - tmux
         - tidy-html5
         - vim
-        - neovim
         - exercism
         - tree
-        - gs
         - postgresql
         - openssl
-        - imagemagick
         - gpg
         - reattach-to-user-namespace
         - diff-so-fancy
-        - sslmate
         - node
         - nvm
         - heroku-toolbelt
         - terraform
-        - mercurial
         - mysql
         - elixir
         - vips
@@ -75,8 +71,8 @@
         - asciinema
         - watch
         - watchman
-        - openconnect
         - bat
+        - kubernetes-cli
 
 
     - name: Install Oh My ZSH
@@ -92,13 +88,9 @@
       homebrew_cask: name={{ item }} state=present
       tags: apps
       with_items:
-        - openconnect-gui
         - ngrok
         - virtualbox
-        - google-chrome
-        - caffeine
         - rescuetime
-        - dropbox
         - xquartz
         - wireshark
         - atom
@@ -119,7 +111,7 @@
       npm: name={{ item }} global=true state={{ install_state }}
       with_items:
         - jshint
-        - nd
+        - nd # Read MarkDown files from the CLI
         - eslint
         - eslint-plugin-react
         - eslint-config-react-app
@@ -133,7 +125,6 @@
         - pryjs
         - create-react-app
         - yarn
-        - cordova
         - flow-bin
         - babel-cli
         - gitbook-cli
@@ -142,6 +133,10 @@
         - git-recall
         - ember-cli
         - terminalizer
+        - spaceship-prompt
+      tags:
+        - node
+        - cli
 
     - name: Install RVM
       shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB; \curl -sSL https://get.rvm.io | bash -s stable; source ~/.rvm/scripts/rvm
@@ -151,12 +146,13 @@
     - name: Install Gems
       shell: rvm @global do gem install {{ item }}
       with_items:
-        - tmuxinator
+        - tmuxinator # Utility to manage tmux configs and sessions
         - flog
         - excellent
-        - lolcommits
+        - lolcommits # Essential tool to take a capture from the webcam with each git commit
         - gemrat
         - rails
+      tags: ruby
 
     - name: Install Vundle for vim plugins
       git:
@@ -176,5 +172,7 @@
         dest: ~/Library/Fonts
 
     - name: Reindex Spotlight Metadata
-      shell: sudo mdutil -E /
+      shell: mdutil -E /
+      become_user: root
+      become: true
 

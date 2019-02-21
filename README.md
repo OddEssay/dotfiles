@@ -1,8 +1,8 @@
 # Paul Bennett-Freeman's dotfiles repo
 
-All configuration is done via Ansible playbooks.
+## On a new machine:
 
-Initial install of Ansible needs to be done by hand using standard instructions as per the website, you can then run the required playbooks to setup all features required. Playbooks can be run multiple times without risk.
+Run `firstrun.sh` from the terminal to get the basics installed, after that everything is handled by Ansible.
 
 | Playbook | Notes |
 | -------- | ----- |
