@@ -1,61 +1,23 @@
 Host *
  ServerAliveInterval 60
-Host yozu
-  HostName yozu.co.uk
-  User pbennettfreeman
+
 Host mva
   HostName minimum-viable-automation.com
   User paul
-Host ff
-  HostName fordfueloils.co.uk
-  User paul
-
-Host instance-1
-  HostName 35.189.82.66
-  User ansible
-  IdentityFile ~/.ssh/ansible_key
-
-Host *.gcs.local
-  User pbennettfreeman
-  StrictHostKeyChecking no
-  UserKnownHostsFile=/dev/null
-
-Host *.gc.pandle.co.uk
-  User pbennettfreeman
-
-Host a1
-  HostName 35.189.92.240
-  User pbennettfreeman
-
-Host a2
-  HostName 35.189.124.133 
-  User pbennettfreeman
-Host 148.252.225.35
-  HostName 148.252.225.35
-  User yozu
 
 Host patchwork.bb
   User git
   HostName bitbucket.org
   IdentityFile ~/.ssh/patchwork
 
-Host *.eu-west-2.compute.amazonaws.com
-  IdentityFile ~/.ssh/citrus.pem
-  User ec2-user
-
-Host jump.patchwork.health
-  IdentityFile ~/.ssh/patchwork-developers.pem
-  User ubuntu
-
 Host 35.178.220.190
   IdentityFile ~/.ssh/patchwork-developers.pem
   User ubuntu
+  
 Host test.rpa.patchwork.health
   IdentityFile ~/.ssh/patchwork-developers.pem
   User ubuntu
+
 Host api.rpa.patchwork.health
-  IdentityFile ~/.ssh/patchwork-developers.pem
-  User ubuntu
-Host insights.patchwork.health
   IdentityFile ~/.ssh/patchwork-developers.pem
   User ubuntu
