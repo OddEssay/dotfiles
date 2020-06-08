@@ -112,3 +112,13 @@ source /Users/paul/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='bg=0,fg=8'
 
 source ~/dotfiles/env_secrets
+
+npm() {
+  if [ -e yarn.lock ]; then
+    echo ""
+    echo "🤬 You forgot to use Yarn  🤬"
+    echo ""
+  else
+    command npm $@
+  fi
+}
