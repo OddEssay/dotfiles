@@ -1,3 +1,4 @@
 *.retry
 fonts
 log
+env_secrets
