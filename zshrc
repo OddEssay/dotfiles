@@ -103,7 +103,15 @@ if [ -f '/Users/paul/Dropbox/Downloads/google-cloud-sdk/completion.zsh.inc' ]; t
 alias pdev="RAILS_ENV=development DATABASE_URL=mysql2://root@127.0.0.1:3306/tapbk_developement bundle exec"
 alias ptest="RAILS_ENV=test DATABASE_URL=mysql2://root@127.0.0.1:3306/tapbk_test bundle exec"
 
-alias dc="docker-compose"
+dc () {
+  if [ -f 'docker-compose.local.yml' ]
+  then
+  	eval "docker-compose -f docker-compose.local.yml $@"
+  else
+  	eval "docker-compose $@"
+  fi
+}
+
 alias dr="docker run --rm --interactive --tty"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
