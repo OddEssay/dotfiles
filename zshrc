@@ -110,3 +110,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 source /Users/paul/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='bg=0,fg=8'
+
+source ~/dotfiles/env_secrets
