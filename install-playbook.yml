@@ -27,53 +27,12 @@
       shell: xcode-select --install
       ignore_errors: yes
 
-    - name: Clean up and update Homebrew to avoid common errors with out of date caches etc
-      shell: (brew update || true) && (brew upgrade brew-cask || true) && (brew cleanup || true) && (brew cask cleanup || true) && (brew prune || true)
-      ignore_errors: yes
-      tags:
-        - homebrew
-        - apps
-        - clean
+    - name: Use brew bundle to install brew packages in Brewfile
+      shell: brew bundle
 
     - name: Show Hidden Folders in Finder
       shell: defaults write com.apple.finder AppleShowAllFiles YES
       tags: macos
-
-      #- name: Homebrew tap
-      # homebrew_tap: name={{ item }} state=present
-      # with_items:
-      #  - ethereum/ethereum
-
-    - name: Install homebrew items with brew install
-      homebrew: name={{ item }} state={{ install_state }}
-      tags: homebrew
-      with_items:
-        - the_silver_searcher # ag, for faster searching of files in the CLI
-        - ctags-exuberant
-        - tmux
-        - tidy-html5
-        - vim
-        - exercism
-        - tree
-        - postgresql
-        - openssl
-        - gpg
-        - reattach-to-user-namespace
-        - diff-so-fancy
-        - node
-        - nvm
-        - heroku-toolbelt
-        - terraform
-        - mysql
-        - elixir
-        - vips
-        - mosh
-        - asciinema
-        - watch
-        - watchman
-        - bat
-        - kubernetes-cli
-
 
     - name: Install Oh My ZSH
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -83,29 +42,6 @@
 
     - name: Fix OpenSSL link issue
       shell: brew link --force openssl
-
-    - name: Install homebrew_cask items
-      homebrew_cask: name={{ item }} state=present
-      tags: apps
-      with_items:
-        - ngrok
-        - virtualbox
-        - rescuetime
-        - xquartz
-        - wireshark
-        - atom
-        - haskell-platform
-        - elm-platform
-        - hipchat
-        - vagrant
-        - docker
-        - omnifocus
-        - slack
-        - textexpander
-        - spotify
-        - bartender
-        - sublime-text
-      ignore_errors: true
 
     - name: Install Global NPM items
       npm: name={{ item }} global=true state={{ install_state }}
