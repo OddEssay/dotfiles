@@ -4,6 +4,9 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="spaceship" # Look in ~/.oh-my-zsh/themes/
 
 export UPDATE_ZSH_DAYS=5
+export HISTFILESIZE=100000
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 # DISABLE_CORRECTION="true"
 # COMPLETION_WAITING_DOTS="true"
