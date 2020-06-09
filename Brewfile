@@ -22,6 +22,7 @@ brew "pkg-config"
 brew "postgresql"
 brew "python"
 brew "python@2", link: false
+brew "pinentry-mac"
 brew "rbspy"
 brew "reattach-to-user-namespace"
 brew "terraform"
