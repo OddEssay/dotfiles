@@ -1,23 +1,11 @@
 Host *
  ServerAliveInterval 60
 
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+
 Host mva
   HostName minimum-viable-automation.com
   User paul
-
-Host patchwork.bb
-  User git
-  HostName bitbucket.org
-  IdentityFile ~/.ssh/patchwork
-
-Host 35.178.220.190
-  IdentityFile ~/.ssh/patchwork-developers.pem
-  User ubuntu
-  
-Host test.rpa.patchwork.health
-  IdentityFile ~/.ssh/patchwork-developers.pem
-  User ubuntu
-
-Host api.rpa.patchwork.health
-  IdentityFile ~/.ssh/patchwork-developers.pem
-  User ubuntu
