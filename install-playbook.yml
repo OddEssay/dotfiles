@@ -4,25 +4,8 @@
   become_user: root
   vars: 
     install_state: present # Override with: --extra-vars "install_state=latest"
-  tasks:
-    - stat: path=/usr/local
-      register: usrlocal
-    - name: "Ensure /usr/local is owned by the current user {{ ansible_user_id }}"
-      file:
-        path: "{{ item }}"
-        state: directory
-        recurse: yes
-        owner: "{{ ansible_user_id }}"
-      become: yes
-      with_items:
-        - /usr/local/Cellar
-        - /usr/local/Homebrew
-        - /usr/local/Frameworks
-        - /usr/local/include
-        - /usr/local/opt
-        - /usr/local/share/zsh
-        - /usr/local/share/zsh/site-functions
 
+  tasks:
     - name: Install XCode Command Line Tools (Error means already installed)
       shell: xcode-select --install
       ignore_errors: yes
@@ -39,64 +22,6 @@
       args:
         creates: ~/.oh-my-zsh/oh-my-zsh.sh
 
-
-    - name: Fix OpenSSL link issue
-      shell: brew link --force openssl
-
-    - name: Install Global NPM items
-      npm: name={{ item }} global=true state={{ install_state }}
-      with_items:
-        - jshint
-        - nd # Read MarkDown files from the CLI
-        - eslint
-        - eslint-plugin-react
-        - eslint-config-react-app
-        - eslint-plugin-underscore
-        - eslint-plugin-mocha
-        - eslint-plugin-import
-        - eslint-plugin-flowtype
-        - eslint-plugin-jsx-a11y
-        - babel-eslint
-        - firebase-tools
-        - pryjs
-        - create-react-app
-        - yarn
-        - flow-bin
-        - babel-cli
-        - gitbook-cli
-        - gatsby-cli
-        - ios-deploy
-        - git-recall
-        - ember-cli
-        - terminalizer
-        - spaceship-prompt
-      tags:
-        - node
-        - cli
-
-    - name: Install RVM
-      shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB; \curl -sSL https://get.rvm.io | bash -s stable; source ~/.rvm/scripts/rvm
-      args:
-        creates: ~/.rvm
-
-    - name: Install Gems
-      shell: rvm @global do gem install {{ item }}
-      with_items:
-        - tmuxinator # Utility to manage tmux configs and sessions
-        - flog
-        - excellent
-        - lolcommits # Essential tool to take a capture from the webcam with each git commit
-        - gemrat
-        - rails
-      tags: ruby
-
-    - name: Install Vundle for vim plugins
-      git:
-        repo: https://github.com/VundleVim/Vundle.vim.git
-        dest: ~/.vim/bundle/Vundle.vim
-    - name: Ensure all vim plugin's are installed
-      shell: vim +PluginInstall +qall
-
     - name: Grab a copy of Powerline patched fonts
       git:
         repo: https://github.com/powerline/fonts.git
@@ -107,8 +32,15 @@
         src: ~/dotfiles/fonts/SourceCodePro/
         dest: ~/Library/Fonts
 
-    - name: Reindex Spotlight Metadata
-      shell: mdutil -E /
-      become_user: root
-      become: true
+    - name: Grab the you-should-use OhMyZSH Plugin
+      git:
+        repo: https://github.com/MichaelAquilina/zsh-you-should-use.git 
+        dest: ~/.oh-my-zsh/custom/plugins/you-should-use
 
+    - name: Grab ASDF From git
+      git:
+        repo: https://github.com/asdf-vm/asdf.git
+        dest: ~/.asdf
+        version: v0.11.3
+      tags:
+        - asdf

@@ -1,7 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="spaceship" # Look in ~/.oh-my-zsh/themes/
+# Theme is loaded from the homebrew installed spaceship, not ZSH_THEME
+# export ZSH_THEME="spaceship" # Look in ~/.oh-my-zsh/themes/
+source /opt/homebrew/opt/spaceship/spaceship.zsh
 
 export UPDATE_ZSH_DAYS=5
 export HISTFILESIZE=100000
@@ -12,18 +14,17 @@ export SAVEHIST=100000
 # COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy" # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 
-plugins=(git osx vagrant rails tmuxinator docker mix you-should-use) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(git macos vagrant rails tmuxinator docker mix you-should-use asdf) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 
 source $ZSH/oh-my-zsh.sh
-source ~/dotfiles/terminal-colours.sh
+
 
 # User configuration
 
 export PATH="/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Make navigation around my main file paths easier
-cdpath=(~/ ~/Development ~/Development/lovefruitful ~/Development/yozu)
+cdpath=(~/ ~/Development ~/Development/patchwork)
 
 # export LANG=en_US.UTF-8
 
@@ -32,7 +33,7 @@ cdpath=(~/ ~/Development ~/Development/lovefruitful ~/Development/yozu)
 alias ap="ansible-playbook"
 alias vimrc="vim ~/dotfiles/vimrc"
 alias vi=vim
-alias zshrc="vim ~/dotfiles/zshrc"
+alias zshrc="code ~/dotfiles/zshrc"
 alias ls='ls -lahGP'
 alias tm='tmuxinator'
 alias tms='tmuxinator start'
@@ -102,10 +103,6 @@ if [ -f '/Users/paul/Dropbox/Downloads/google-cloud-sdk/path.zsh.inc' ]; then so
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/paul/Dropbox/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/paul/Dropbox/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Pandle Development aliases for docker Database
-alias pdev="RAILS_ENV=development DATABASE_URL=mysql2://root@127.0.0.1:3306/tapbk_developement bundle exec"
-alias ptest="RAILS_ENV=test DATABASE_URL=mysql2://root@127.0.0.1:3306/tapbk_test bundle exec"
-
 dc () {
   if [ -f 'docker-compose.local.yml' ]
   then
@@ -116,11 +113,6 @@ dc () {
 }
 
 alias dr="docker run --rm --interactive --tty"
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-source /Users/paul/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='bg=0,fg=8'
 
 source ~/dotfiles/env_secrets
 
@@ -133,3 +125,4 @@ npm() {
     command npm $@
   fi
 }
+
