@@ -116,13 +116,8 @@ alias dr="docker run --rm --interactive --tty"
 
 source ~/dotfiles/env_secrets
 
-npm() {
-  if [ -e yarn.lock ]; then
-    echo ""
-    echo "🤬 You forgot to use Yarn  🤬"
-    echo ""
-  else
-    command npm $@
-  fi
-}
+for file in ~/dotfiles/shell-functions/*.zsh; do
+    autoload -Uz "$(basename "$file" .zsh)"
+    source "$file"
+done
 
