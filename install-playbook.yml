@@ -2,7 +2,7 @@
 - hosts: localhost
   become: no
   become_user: root
-  vars: 
+  vars:
     install_state: present # Override with: --extra-vars "install_state=latest"
 
   tasks:
@@ -34,7 +34,7 @@
 
     - name: Grab the you-should-use OhMyZSH Plugin
       git:
-        repo: https://github.com/MichaelAquilina/zsh-you-should-use.git 
+        repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
         dest: ~/.oh-my-zsh/custom/plugins/you-should-use
 
     - name: Grab ASDF From git
@@ -44,3 +44,10 @@
         version: v0.11.3
       tags:
         - asdf
+
+    - name: Grab tpm (Tmux Plugin Manager) From git
+      git:
+        repo: https://github.com/tmux-plugins/tpm
+        dest: ~/.tmux/plugins/tpm
+      tags:
+        - tmux
