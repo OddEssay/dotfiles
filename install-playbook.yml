@@ -69,7 +69,7 @@
       tags: link
 
     - file:
-        src:"{{ playbook_dir }}/ssh_config"
+        src: '{{ playbook_dir }}/ssh_config'
         dest: '~/.ssh/config'
         state: link
       tags: link
