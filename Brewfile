@@ -5,6 +5,7 @@ tap 'homebrew/services'
 brew 'ansible'
 brew 'autoconf'
 brew 'automake'
+brew "awscli"
 brew 'openssl@1.1'
 brew 'coreutils'
 brew 'diff-so-fancy'
@@ -19,6 +20,7 @@ brew 'tmux'
 brew 'tmuxinator'
 brew 'tree'
 brew 'spaceship'
+brew "exa"
 cask 'ngrok'
 mas 'Amphetamine', id: 937_984_704
 mas 'FruitJuice', id: 671_736_912
