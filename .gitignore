@@ -2,3 +2,6 @@
 fonts
 log
 env_secrets
+.idea
+.DS_Store
+Brewfile.lock.json
