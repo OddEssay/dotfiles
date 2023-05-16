@@ -51,3 +51,25 @@
         dest: ~/.tmux/plugins/tpm
       tags:
         - tmux
+
+    - name: Link files
+      file:
+        src: '{{ playbook_dir }}/{{item}}'
+        dest: '~/.{{item}}'
+        state: link
+        force: true
+      with_items:
+        - agignore
+        - zhsrc
+        - tmux.conf
+        - asdfrc
+        - gitconfig
+        - ssh_config
+        - tmuxinator
+      tags: link
+
+    - file:
+        src: '{{ playbook_dir }}/ssh_config'
+        dest: '~/.ssh/config'
+        state: link
+      tags: link
