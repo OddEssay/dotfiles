@@ -107,15 +107,6 @@ if [ -f '/Users/paul/Dropbox/Downloads/google-cloud-sdk/path.zsh.inc' ]; then so
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/paul/Dropbox/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/paul/Dropbox/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-dc () {
-  if [ -f 'docker-compose.local.yml' ]
-  then
-  	eval "docker-compose -f docker-compose.local.yml $@"
-  else
-  	eval "docker-compose $@"
-  fi
-}
-
 alias dr="docker run --rm --interactive --tty"
 
 source ~/dotfiles/env_secrets
