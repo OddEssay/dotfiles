@@ -28,3 +28,4 @@ mas 'iA Writer', id: 775_737_590
 mas 'Moom', id: 419_330_170
 mas 'Slack', id: 803_453_959
 mas 'Hush Nag Blocker', id: 1_544_743_900
+mas 'NordLayer', id: 1_488_888_843
