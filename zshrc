@@ -41,6 +41,7 @@ alias zshrc="code ~/dotfiles/zshrc"
 alias ls='ls -lahGP'
 alias tm='tmuxinator'
 alias tms='tmuxinator start'
+alias code='code-insiders'
 
 # Shortcut to run vagrant ssh -c in the right context
 function vudo() { eval "vagrant ssh -c \"cd /vagrant && $@\"" }
@@ -116,3 +117,11 @@ for file in ~/dotfiles/shell-functions/*.zsh; do
     source "$file"
 done
 
+
+# Add NVM only if it's installed
+[ -d "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Add RVM only if it's installed
+[ -s "$HOME/.rvm/bin" ] && export PATH="$PATH:$HOME/.rvm/bin"
