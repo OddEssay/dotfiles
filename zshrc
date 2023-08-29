@@ -125,3 +125,11 @@ done
 
 # Add RVM only if it's installed
 [ -s "$HOME/.rvm/bin" ] && export PATH="$PATH:$HOME/.rvm/bin"
+
+# pnpm
+export PNPM_HOME="/Users/paul/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
