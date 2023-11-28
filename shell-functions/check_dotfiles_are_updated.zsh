@@ -12,7 +12,11 @@ if [[ ! -f ~/.last_dotfiles_check ]] || [[ $(expr $(date +%s) - $(stat -f%c ~/.l
     git fetch
     if [[ $(git rev-parse HEAD) != $(git rev-parse @{u}) ]]; then
         echo "  👋"
+        echo "  👋"
         echo "    dotfiles repo is not up to date! 👀"
+        echo "  Run 'git pull' to update dotfiles"
+        echo "  👋"
+        echo "  👋"
     fi
     touch ~/.last_dotfiles_check
     cd -
