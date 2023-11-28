@@ -15,4 +15,5 @@ if [[ ! -f ~/.last_dotfiles_check ]] || [[ $(expr $(date +%s) - $(stat -f%c ~/.l
         echo "    dotfiles repo is not up to date! 👀"
     fi
     touch ~/.last_dotfiles_check
+    cd -
 fi
