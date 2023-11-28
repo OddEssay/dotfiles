@@ -2,6 +2,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/cask'
 tap 'homebrew/core'
 tap 'homebrew/services'
+tap 'localstack/tap'
 tap 'homebrew/cask-fonts'
 brew 'ansible'
 brew 'autoconf'
@@ -22,8 +23,11 @@ brew 'tmuxinator'
 brew 'tree'
 brew 'spaceship'
 brew "exa"
+brew 'localstack-cli'
 cask 'font-monaspace'
 cask 'ngrok'
+cask 'keycastr'
+cask 'polypane'
 mas 'Amphetamine', id: 937_984_704
 mas 'FruitJuice', id: 671_736_912
 mas 'iA Writer', id: 775_737_590
