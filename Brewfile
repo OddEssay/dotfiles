@@ -21,6 +21,7 @@ brew 'tmuxinator'
 brew 'tree'
 brew 'spaceship'
 brew "exa"
+brew "gh"
 brew 'localstack-cli'
 cask '1password-cli'
 cask 'font-monaspace'
