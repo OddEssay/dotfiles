@@ -35,8 +35,8 @@ cdpath=(~/ ~/Development ~/Development/patchwork)
 # export SSH_KEY_PATH="~/.ssh/dsa_id" #ssh
 
 alias ap="ansible-playbook"
-alias vimrc="vim ~/dotfiles/vimrc"
-alias vi=vim
+alias vi=nvim
+alias vim=nvim
 alias zshrc="code ~/dotfiles/zshrc"
 alias ls='ls -lahGP'
 alias tm='tmuxinator'
@@ -162,3 +162,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Created by `pipx` on 2024-05-28 21:21:38
+export PATH="$PATH:/Users/paul/.local/bin"
+if [ -f "/Users/paul/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/paul/.config/fabric/fabric-bootstrap.inc"; fi
