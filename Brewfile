@@ -1,7 +1,6 @@
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 tap 'localstack/tap'
-tap 'homebrew/cask-fonts'
 
 brew 'ansible'
 brew 'autoconf'
