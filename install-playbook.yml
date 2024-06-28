@@ -68,6 +68,17 @@
         - tmuxinator
       tags: link
 
+    - name: Link config files
+      file:
+        src: "{{ playbook_dir }}/config/{{item}}"
+        dest: "~/.config/{{item}}"
+        state: link
+        force: true
+      with_items:
+        - nvim
+      tags: link
+
+
     - file:
         src: "{{ playbook_dir }}/ssh_config"
         dest: "~/.ssh/config"
