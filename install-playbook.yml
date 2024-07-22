@@ -66,6 +66,7 @@
         - gitconfig
         - ssh_config
         - tmuxinator
+        - wezterm.lua
       tags: link
 
     - name: Link config files
