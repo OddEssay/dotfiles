@@ -27,11 +27,13 @@ brew 'neovim'
 
 cask '1password-cli'
 cask 'font-monaspace'
+cask 'font-redhat'
 cask 'ngrok'
 cask 'keycastr'
 cask 'polypane'
-mas 'Amphetamine', id: 937_984_704
+cask 'wezterm' 
 
+mas 'Amphetamine', id: 937_984_704
 mas 'FruitJuice', id: 671_736_912
 mas 'iA Writer', id: 775_737_590
 mas 'Moom', id: 419_330_170
