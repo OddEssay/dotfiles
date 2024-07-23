@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Function to check for changes in Brewfile
+check_brewfile_changes () {
+    # Get the commit hashes for the merge
+    PREVIOUS_HEAD=$1
+    MERGE_HEAD=$(git rev-parse HEAD)
+
+    # Check if Brewfile was changed between the previous head and the merge head.
+    if git diff --name-only $PREVIOUS_HEAD $MERGE_HEAD | grep -q "^Brewfile$"; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Store the previous HEAD before merge
+PREVIOUS_HEAD=$(git rev-parse HEAD^) # This is the main parent of the current commit, should be the head before pulling
+
+# Call the function to check if Brewfile has changed
+if check_brewfile_changes $PREVIOUS_HEAD; then
+    echo "The Brewfile has changed. Do you want to run 'brew bundle'? (Y/n)"
+    read -n 1 -r REPLY
+
+    echo    # Move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "Running 'brew bundle'..."
+        brew bundle
+    else
+        echo "Skipping 'brew bundle'."
+    fi
+else
+    echo "Brewfile did not change."
+fi

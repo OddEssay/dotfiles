@@ -85,3 +85,12 @@
         dest: "~/.ssh/config"
         state: link
       tags: link
+
+    - name: Link hooks to .git/hooks
+      file:
+        src: "{{ playbook_dir }}/hooks/post-merge"
+        dest: "{{ playbook_dir }}/.git/hooks/post-merge"
+        state: link
+      tags: link
+
+
