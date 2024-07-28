@@ -25,6 +25,7 @@ brew "gh"
 brew 'localstack-cli'
 brew 'neovim'
 brew 'pinentry-mac'
+brew 'atuin'
 
 cask '1password-cli'
 cask 'font-monaspace'

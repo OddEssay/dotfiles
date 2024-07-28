@@ -166,3 +166,4 @@ esac
 # Created by `pipx` on 2024-05-28 21:21:38
 export PATH="$PATH:/Users/paul/.local/bin"
 if [ -f "/Users/paul/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/paul/.config/fabric/fabric-bootstrap.inc"; fi
+eval "$(atuin init zsh)"
