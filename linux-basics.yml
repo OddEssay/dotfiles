@@ -1,0 +1,77 @@
+---
+- hosts: localhost
+  become: no
+  become_user: root
+  vars:
+    install_state: present # Override with: --extra-vars "install_state=latest"
+    the_user: "{{ ansible_user_id }}"
+  tasks:
+    - name: change user shell to zsh
+      become: yes
+      user:
+        name: "{{ the_user }}"
+        shell: /bin/zsh
+
+    - name: Install core and common packages
+      apt:
+        name: "{{ item }}"
+        state: "{{ install_state }}"
+      with_items:
+        - git
+        - curl
+        - wget
+        - zsh
+        - tmux
+      become: true
+
+    - name: Install Oh My ZSH
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      args:
+        creates: ~/.oh-my-zsh/oh-my-zsh.sh
+
+    - name: Grab the you-should-use OhMyZSH Plugin
+      git:
+        repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
+        dest: ~/.oh-my-zsh/custom/plugins/you-should-use
+
+    - name: Grab ASDF From git
+      git:
+        repo: https://github.com/asdf-vm/asdf.git
+        dest: ~/.asdf
+        version: v0.11.3
+      tags:
+        - asdf
+
+    - name: Grab tpm (Tmux Plugin Manager) From git
+      git:
+        repo: https://github.com/tmux-plugins/tpm
+        dest: ~/.tmux/plugins/tpm
+      tags:
+        - tmux
+
+    - name: Link dotfiles repo to ~/dotfiles
+      file:
+        src: "{{ playbook_dir }}"
+        dest: "~/dotfiles"
+        state: link
+        force: true
+      tags: link
+
+    - name: Link files
+      file:
+        src: "{{ playbook_dir }}/{{item}}"
+        dest: "~/.{{item}}"
+        state: link
+        force: true
+      with_items:
+        - agignore
+        - tmux.conf
+        - asdfrc
+        - gitconfig
+      tags: link
+
+    - file:
+        src: "{{ playbook_dir }}/ssh_config"
+        dest: "~/.ssh/config"
+        state: link
+      tags: link
