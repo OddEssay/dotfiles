@@ -43,4 +43,4 @@ mas 'Moom', id: 419_330_170
 mas 'Slack', id: 803_453_959
 mas 'Hush Nag Blocker', id: 1_544_743_900
 mas 'NordLayer', id: 1_488_888_843
-mas 'Todoist: To-Do List & Tasks', id: 585_829_637
+mas 'OmniFocus 4', id: 1_542_143_627
