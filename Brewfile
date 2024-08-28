@@ -35,6 +35,7 @@ cask 'ngrok'
 cask 'keycastr'
 cask 'polypane'
 cask 'wezterm' 
+cask 'session-manager-plugin'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'FruitJuice', id: 671_736_912
