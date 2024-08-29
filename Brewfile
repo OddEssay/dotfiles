@@ -19,13 +19,13 @@ brew 'the_silver_searcher'
 brew 'tmux'
 brew 'tmuxinator'
 brew 'tree'
-brew 'spaceship'
 brew "exa"
 brew "gh"
 brew 'localstack-cli'
 brew 'neovim'
 brew 'pinentry-mac'
 brew 'atuin'
+brew 'starship'
 
 cask '1password-cli'
 cask 'font-monaspace'

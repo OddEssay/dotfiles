@@ -2,12 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme is loaded from the homebrew installed spaceship, not ZSH_THEME
-# export ZSH_THEME="spaceship" # Look in ~/.oh-my-zsh/themes/
-if [ -f "/opt/homebrew/opt/spaceship/spaceship.zsh" ]; then
-  source /opt/homebrew/opt/spaceship/spaceship.zsh
-elif [ -f "/usr/local/opt/spaceship/spaceship.zsh" ]; then
-  source /usr/local/opt/spaceship/spaceship.zsh
-fi
+eval "$(starship init zsh)"
 
 export UPDATE_ZSH_DAYS=5
 export HISTFILESIZE=100000
