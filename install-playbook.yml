@@ -41,7 +41,7 @@
       git:
         repo: https://github.com/asdf-vm/asdf.git
         dest: ~/.asdf
-        version: v0.11.3
+        version: v0.14.1
       tags:
         - asdf
 
