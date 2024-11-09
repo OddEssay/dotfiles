@@ -1,4 +1,4 @@
--- Pull in the wezterm API
+-- Pull in the wezterm API #
 local wezterm = require("wezterm")
 
 local function is_vim(pane)
@@ -76,6 +76,8 @@ config.keys = {
 	split_nav("resize", "k"),
 	split_nav("resize", "l"),
 }
+
+config.send_composed_key_when_left_alt_is_pressed = true
 
 -- and finally, return the configuration to wezterm
 return config
