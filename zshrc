@@ -162,3 +162,6 @@ esac
 export PATH="$PATH:/Users/paul/.local/bin"
 if [ -f "/Users/paul/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/paul/.config/fabric/fabric-bootstrap.inc"; fi
 eval "$(atuin init zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/paul/.cache/lm-studio/bin"
