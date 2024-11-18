@@ -8,3 +8,5 @@
 	eol = lf
 	fileMode = false
 	editor = vim
+[fetch]
+	prune = true
