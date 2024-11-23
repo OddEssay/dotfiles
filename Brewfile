@@ -33,7 +33,7 @@ cask 'font-redhat'
 cask 'font-red-hat-mono'
 cask 'ngrok'
 cask 'keycastr'
-cask 'polypane'
+# cask 'polypane'
 cask 'wezterm' 
 cask 'session-manager-plugin'
 
