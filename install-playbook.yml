@@ -78,6 +78,7 @@
       with_items:
         - nvim
         - "atuin"
+        - "starship.toml"
       tags: link
 
 
