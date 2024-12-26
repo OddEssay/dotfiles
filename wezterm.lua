@@ -79,5 +79,7 @@ config.keys = {
 
 config.send_composed_key_when_left_alt_is_pressed = true
 
+config.window_close_confirmation = "NeverPrompt"
+
 -- and finally, return the configuration to wezterm
 return config
