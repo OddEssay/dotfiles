@@ -79,6 +79,8 @@
         - nvim
         - "atuin"
         - "starship.toml"
+        - "aerospace"
+        - "borders"
       tags: link
 
 

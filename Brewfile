@@ -1,11 +1,14 @@
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 tap 'localstack/tap'
+tap 'nikitabobko/tap'
+tap 'FelixKratz/formulae'
 
 brew 'ansible'
 brew 'autoconf'
 brew 'automake'
 brew "awscli"
+brew "borders"
 brew 'openssl@1.1'
 brew 'coreutils'
 brew 'diff-so-fancy'
@@ -36,6 +39,7 @@ cask 'keycastr'
 # cask 'polypane'
 cask 'wezterm' 
 cask 'session-manager-plugin'
+cask 'aerospace'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'FruitJuice', id: 671_736_912

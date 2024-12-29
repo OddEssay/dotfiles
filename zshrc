@@ -168,3 +168,6 @@ export PATH="$PATH:/Users/paul/.cache/lm-studio/bin"
 
 # Added by Windsurf
 export PATH="/Users/paul/.codeium/windsurf/bin:$PATH"
+
+# Set the XDG_CONFIG_HOME value - specifically for aerospace
+export XDG_CONFIG_HOME="/Users/paul/.config"
