@@ -1,7 +1,10 @@
+# JankyBorders config
+# https://github.com/FelixKratz/JankyBorders
+# Color format: 0xAARRGGBB
 options=(
 	style=round
-	width=6.0
-	hidpi=off
+	width=7.0
+	hidpi=on
 	active_color=0xffe2e2e3
 	inactive_color=0xff414550
 )
