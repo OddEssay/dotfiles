@@ -67,6 +67,7 @@
         - ssh_config
         - tmuxinator
         - wezterm.lua
+        - tool-versions
       tags: link
 
     - name: Link config files
