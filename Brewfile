@@ -22,7 +22,6 @@ brew 'the_silver_searcher'
 brew 'tmux'
 brew 'tmuxinator'
 brew 'tree'
-brew "exa"
 brew "gh"
 brew 'localstack-cli'
 brew 'neovim'
