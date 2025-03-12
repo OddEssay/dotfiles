@@ -4,9 +4,11 @@
 	email = clicknmix@gmail.com
 	name = Paul Bennett-Freeman
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
 	eol = lf
 	fileMode = false
 	editor = vim
 [fetch]
 	prune = true
+[commit]
+	template = ~/.gitmessage
