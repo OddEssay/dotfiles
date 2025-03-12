@@ -215,4 +215,16 @@ run = 'move-node-to-workspace T'
 
 
 
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'secondary'
+4 = 'C34J79x'
+5 = 'C34J79x'
+6 = 'C34J79x'
+7 = 'C34J79x'
+8 = 'C34J79x'
+9 = 'C34J79x'
+S = 'main'
+M = 'main'
+Z = 'main'
 
