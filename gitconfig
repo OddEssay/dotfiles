@@ -12,3 +12,5 @@
 	prune = true
 [commit]
 	template = ~/.gitmessage
+[init]
+	defaultBranch = main
