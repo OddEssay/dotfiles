@@ -6,3 +6,4 @@ env_secrets
 .DS_Store
 Brewfile.lock.json
 config/nvim/pack
+config/nvim/lazy-lock.json
