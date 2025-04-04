@@ -98,4 +98,7 @@
         state: link
       tags: link
 
-
+    - name: Start the borders service (equivalent to `brew services start foo`)
+      community.general.homebrew_services:
+        name: borders
+        state: present

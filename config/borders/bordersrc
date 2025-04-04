@@ -3,10 +3,10 @@
 # Color format: 0xAARRGGBB
 options=(
 	style=round
-	width=7.0
 	hidpi=on
-	active_color=0xffe2e2e3
-	inactive_color=0xff414550
+	active_color=0xbc69ff69
+	inactive_color=0xff494d64
+	width=9.0
 )
 
 borders "${options[@]}"
