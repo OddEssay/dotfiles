@@ -7,7 +7,7 @@
 
   tasks:
     - name: Install XCode Command Line Tools (Error means already installed)
-      shell: xcode-select --install
+      shell: xcode-select --install || exit 0
       ignore_errors: yes
 
     - name: Use brew bundle to install brew packages in Brewfile
