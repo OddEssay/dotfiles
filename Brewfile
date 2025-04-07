@@ -39,6 +39,7 @@ cask 'keycastr'
 cask 'wezterm' 
 cask 'session-manager-plugin'
 cask 'aerospace'
+cask 'ghostty'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'FruitJuice', id: 671_736_912
