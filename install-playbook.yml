@@ -37,14 +37,6 @@
         repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
         dest: ~/.oh-my-zsh/custom/plugins/you-should-use
 
-    - name: Grab ASDF From git
-      git:
-        repo: https://github.com/asdf-vm/asdf.git
-        dest: ~/.asdf
-        version: v0.14.1
-      tags:
-        - asdf
-
     - name: Grab tpm (Tmux Plugin Manager) From git
       git:
         repo: https://github.com/tmux-plugins/tpm

@@ -8,6 +8,7 @@ brew 'ansible'
 brew 'autoconf'
 brew 'automake'
 brew "awscli"
+brew "asdf"
 brew "borders"
 brew 'openssl@1.1'
 brew 'coreutils'
