@@ -171,3 +171,10 @@ export PATH="/Users/paul/.codeium/windsurf/bin:$PATH"
 
 # Set the XDG_CONFIG_HOME value - specifically for aerospace
 export XDG_CONFIG_HOME="/Users/paul/.config"
+
+# bun completions
+[ -s "/Users/paul/.bun/_bun" ] && source "/Users/paul/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
