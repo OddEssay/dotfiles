@@ -1,0 +1,8 @@
+#:qghostty +list-themes
+# theme = dark:SoftServer,light:SoftServer
+# theme = matrix
+# theme = lovelace
+
+window-decoration = false
+confirm-close-surface = false
+command = /Users/paul/dotfiles/ghostty-tmux.sh

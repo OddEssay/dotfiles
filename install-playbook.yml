@@ -74,6 +74,7 @@
         - "starship.toml"
         - "aerospace"
         - "borders"
+        - "ghostty"
       tags: link
 
 
