@@ -2,6 +2,7 @@
 # theme = dark:SoftServer,light:SoftServer
 # theme = matrix
 # theme = lovelace
+theme = Teerb
 
 window-decoration = false
 confirm-close-surface = false
