@@ -29,6 +29,8 @@ brew 'neovim'
 brew 'pinentry-mac'
 brew 'atuin'
 brew 'starship'
+brew 'fd'
+brew 'ripgrep'
 
 cask '1password-cli'
 cask 'font-monaspace'
