@@ -1,15 +1,25 @@
 #!/bin/zsh
 
 # Git Activity Tracker
-# This script tracks the number of commits made today across multiple git repositories
+# This script tracks the number of commits made today by the current user across multiple git repositories
 
 # Configuration
 # Add your repository paths here (space-separated)
 REPOS=(
-  "$HOME/development/patchwork/PatchworkOnRails"
   "$HOME/dotfiles"
-  "$HOME/development/patchwork/PatchworkApps"
+  "$HOME/development/patchworkhealth/PatchworkOnRails"
+  "$HOME/development/patchworkhealth/PatchworkApps"
   # Add more repos as needed
+)
+
+# Configure your Git author identities (add all emails/names you use)
+AUTHOR_EMAILS=(
+  "clicknmix@gmail.com"
+  "paul@patchwork.health"
+)
+
+AUTHOR_NAMES=(
+  "Paul Bennett-Freeman"
 )
 
 # Get today's date in YYYY-MM-DD format
@@ -19,13 +29,60 @@ TODAY=$(date +%Y-%m-%d)
 TOTAL_COMMITS=0
 ACTIVE_REPOS=()
 
-# Function to count commits for a specific branch
-count_commits_in_branch() {
+# Function to collect commit SHAs for a specific branch, filtered by multiple authors
+collect_commit_shas_in_branch() {
   local repo=$1
   local branch=$2
-  local count=$(git -C "$repo" log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --format=oneline "$branch" 2>/dev/null | wc -l | tr -d ' ')
-  echo $count
+  local author_pattern=""
+  
+  # Build an author pattern using all configured emails and names
+  if [[ ${#AUTHOR_EMAILS[@]} -gt 0 || ${#AUTHOR_NAMES[@]} -gt 0 ]]; then
+    # Start with emails
+    for email in "${AUTHOR_EMAILS[@]}"; do
+      if [[ -n "$email" ]]; then
+        if [[ -z "$author_pattern" ]]; then
+          author_pattern="$email"
+        else
+          author_pattern="$author_pattern|$email"
+        fi
+      fi
+    done
+    # Add names
+    for name in "${AUTHOR_NAMES[@]}"; do
+      if [[ -n "$name" ]]; then
+        if [[ -z "$author_pattern" ]]; then
+          author_pattern="$name"
+        else
+          author_pattern="$author_pattern|$name"
+        fi
+      fi
+    done
+  fi
+  # If no author identities were configured, fall back to git config
+  if [[ -z "$author_pattern" ]]; then
+    local config_email=$(git config user.email)
+    local config_name=$(git config user.name)
+    if [[ -n "$config_email" ]]; then
+      author_pattern="$config_email"
+    fi
+    if [[ -n "$config_name" ]]; then
+      if [[ -z "$author_pattern" ]]; then
+        author_pattern="$config_name"
+      else
+        author_pattern="$author_pattern|$config_name"
+      fi
+    fi
+  fi
+  # Output commit SHAs
+  if [[ -n "$author_pattern" ]]; then
+    git -C "$repo" log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --author="($author_pattern)" --format="%H" "$branch" 2>/dev/null
+  else
+    # Fallback if no author identity could be determined
+    git -C "$repo" log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --format="%H" "$branch" 2>/dev/null
+  fi
 }
+
+
 
 # Process each repository
 for REPO in "${REPOS[@]}"; do
@@ -36,10 +93,11 @@ for REPO in "${REPOS[@]}"; do
 
   REPO_NAME=$(basename "$REPO")
   REPO_COMMITS=0
-  
+  BRANCH_SHAS=()
+
   # Get all local branches
   BRANCHES=($(git -C "$REPO" branch | sed 's/^[ *]*//' | tr '\n' ' '))
-  
+
   # Also check main branch (might be main or master)
   if git -C "$REPO" rev-parse --verify main >/dev/null 2>&1; then
     MAIN_BRANCH="main"
@@ -48,38 +106,43 @@ for REPO in "${REPOS[@]}"; do
   else
     MAIN_BRANCH=""
   fi
-  
-  # Count commits in main branch
+
+  # Collect SHAs from main branch
   if [[ -n "$MAIN_BRANCH" ]]; then
-    MAIN_COMMITS=$(count_commits_in_branch "$REPO" "$MAIN_BRANCH")
-    REPO_COMMITS=$((REPO_COMMITS + MAIN_COMMITS))
-    
-    if [[ $MAIN_COMMITS -gt 0 ]]; then
-      echo "Repo: $REPO_NAME, Branch: $MAIN_BRANCH, Commits today: $MAIN_COMMITS"
+    MAIN_SHAS=()
+    if [[ ${#AUTHOR_EMAILS[@]} -gt 0 ]]; then
+      for email in "${AUTHOR_EMAILS[@]}"; do
+        EMAIL_SHAS=(${(@f)$(git -C "$REPO" log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --author="$email" --format="%H" $MAIN_BRANCH 2>/dev/null)})
+        MAIN_SHAS+=("${EMAIL_SHAS[@]}")
+      done
+    else
+      MAIN_SHAS=(${(@f)$(collect_commit_shas_in_branch "$REPO" "$MAIN_BRANCH")})
     fi
+    BRANCH_SHAS+=("${MAIN_SHAS[@]}")
   fi
-  
-  # Count commits in other branches
+
+  # Collect SHAs from other branches
   for BRANCH in "${BRANCHES[@]}"; do
     # Skip if it's the main branch we already counted
     if [[ "$BRANCH" == "$MAIN_BRANCH" ]]; then
       continue
     fi
-    
-    BRANCH_COMMITS=$(count_commits_in_branch "$REPO" "$BRANCH")
-    REPO_COMMITS=$((REPO_COMMITS + BRANCH_COMMITS))
-    
-    if [[ $BRANCH_COMMITS -gt 0 ]]; then
-      echo "Repo: $REPO_NAME, Branch: $BRANCH, Commits today: $BRANCH_COMMITS"
-    fi
+    BRANCH_ONLY_SHAS=(${(@f)$(collect_commit_shas_in_branch "$REPO" "$BRANCH")})
+    BRANCH_SHAS+=("${BRANCH_ONLY_SHAS[@]}")
   done
-  
-  # Add to total if there were any commits
-  if [[ $REPO_COMMITS -gt 0 ]]; then
-    ACTIVE_REPOS+=("$REPO_NAME")
-    TOTAL_COMMITS=$((TOTAL_COMMITS + REPO_COMMITS))
+
+  # Deduplicate SHAs and count unique
+  if [[ ${#BRANCH_SHAS[@]} -gt 0 ]]; then
+    UNIQUE_SHAS=$(printf "%s\n" "${BRANCH_SHAS[@]}" | sort | uniq)
+    REPO_COMMITS=$(printf "%s\n" "$UNIQUE_SHAS" | grep -c ".")
+    if [[ $REPO_COMMITS -gt 0 ]]; then
+      echo "Repo: $REPO_NAME, Unique commits today: $REPO_COMMITS"
+      ACTIVE_REPOS+=("$REPO_NAME")
+      TOTAL_COMMITS=$((TOTAL_COMMITS + REPO_COMMITS))
+    fi
   fi
 done
+
 
 # Format the active repos list for output
 REPOS_LIST=""
