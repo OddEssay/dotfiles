@@ -136,7 +136,6 @@ for REPO in "${REPOS[@]}"; do
     UNIQUE_SHAS=$(printf "%s\n" "${BRANCH_SHAS[@]}" | sort | uniq)
     REPO_COMMITS=$(printf "%s\n" "$UNIQUE_SHAS" | grep -c ".")
     if [[ $REPO_COMMITS -gt 0 ]]; then
-      echo "Repo: $REPO_NAME, Unique commits today: $REPO_COMMITS"
       ACTIVE_REPOS+=("$REPO_NAME")
       TOTAL_COMMITS=$((TOTAL_COMMITS + REPO_COMMITS))
     fi
@@ -157,8 +156,6 @@ if [[ ${#ACTIVE_REPOS[@]} -gt 0 ]]; then
 fi
 
 # Output the summary
-echo ""
-echo "Summary for $TODAY:"
 if [[ $TOTAL_COMMITS -eq 0 ]]; then
   echo "No commits made today."
 else
