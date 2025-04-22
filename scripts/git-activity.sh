@@ -7,20 +7,14 @@
 # Add your repository paths here (space-separated)
 REPOS=(
   "$HOME/dotfiles"
-  "$HOME/development/patchworkhealth/PatchworkOnRails"
-  "$HOME/development/patchworkhealth/PatchworkApps"
+  "$HOME/patchwork/PatchworkOnRails"
+  "$HOME/patchwork/PatchworkApps"
+  "$HOME/patchwork/L2P-V8"
   # Add more repos as needed
 )
 
-# Configure your Git author identities (add all emails/names you use)
-AUTHOR_EMAILS=(
-  "clicknmix@gmail.com"
-  "paul@patchwork.health"
-)
+AUTHOR_NAME="Paul Bennett-Freeman"
 
-AUTHOR_NAMES=(
-  "Paul Bennett-Freeman"
-)
 
 # Get today's date in YYYY-MM-DD format
 TODAY=$(date +%Y-%m-%d)
@@ -35,47 +29,9 @@ collect_commit_shas_in_branch() {
   local branch=$2
   local author_pattern=""
   
-  # Build an author pattern using all configured emails and names
-  if [[ ${#AUTHOR_EMAILS[@]} -gt 0 || ${#AUTHOR_NAMES[@]} -gt 0 ]]; then
-    # Start with emails
-    for email in "${AUTHOR_EMAILS[@]}"; do
-      if [[ -n "$email" ]]; then
-        if [[ -z "$author_pattern" ]]; then
-          author_pattern="$email"
-        else
-          author_pattern="$author_pattern|$email"
-        fi
-      fi
-    done
-    # Add names
-    for name in "${AUTHOR_NAMES[@]}"; do
-      if [[ -n "$name" ]]; then
-        if [[ -z "$author_pattern" ]]; then
-          author_pattern="$name"
-        else
-          author_pattern="$author_pattern|$name"
-        fi
-      fi
-    done
-  fi
-  # If no author identities were configured, fall back to git config
-  if [[ -z "$author_pattern" ]]; then
-    local config_email=$(git config user.email)
-    local config_name=$(git config user.name)
-    if [[ -n "$config_email" ]]; then
-      author_pattern="$config_email"
-    fi
-    if [[ -n "$config_name" ]]; then
-      if [[ -z "$author_pattern" ]]; then
-        author_pattern="$config_name"
-      else
-        author_pattern="$author_pattern|$config_name"
-      fi
-    fi
-  fi
   # Output commit SHAs
   if [[ -n "$author_pattern" ]]; then
-    git -C "$repo" log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --author="($author_pattern)" --format="%H" "$branch" 2>/dev/null
+    git -C "$repo" log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --author="$AUTHOR_NAME" --format="%H" "$branch" 2>/dev/null
   else
     # Fallback if no author identity could be determined
     git -C "$repo" log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --format="%H" "$branch" 2>/dev/null
