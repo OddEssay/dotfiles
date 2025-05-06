@@ -9,6 +9,7 @@ REPOS=(
   "$HOME/dotfiles"
   "$HOME/patchwork/PatchworkOnRails"
   "$HOME/patchwork/PatchworkApps"
+  "$HOME/patchwork/kmono"
   "$HOME/patchwork/L2P-V8"
   # Add more repos as needed
 )
