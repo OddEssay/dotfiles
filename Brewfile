@@ -1,3 +1,4 @@
+
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 tap 'localstack/tap'
@@ -54,3 +55,4 @@ mas 'NordLayer', id: 1_488_888_843
 mas 'OmniFocus 4', id: 1_542_143_627
 mas 'Microsoft Word', id: 462_054_704
 mas 'Microsoft Excel', id: 462_058_435
+mas 'Drafts', id: 1_435_957_248
