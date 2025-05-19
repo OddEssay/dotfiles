@@ -178,3 +178,4 @@ export XDG_CONFIG_HOME="/Users/paul/.config"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+alias claude="/Users/paul/.claude/local/claude"
