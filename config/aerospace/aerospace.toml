@@ -212,6 +212,9 @@ if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace T'
 
 
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace S'
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'
