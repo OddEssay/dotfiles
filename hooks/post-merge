@@ -25,17 +25,8 @@ echo "Previous HEAD: $PREVIOUS_HEAD"
 
 # Call the function to check if Brewfile has changed
 if check_brewfile_changes $PREVIOUS_HEAD; then
-    echo "The Brewfile has changed. Do you want to run 'brew bundle'? (Y/n)"
-    read -n 1 -r REPLY
-
-    echo    # Move to a new line
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-        echo "Running 'brew bundle'..."
-        brew bundle
-    else
-        echo "Skipping 'brew bundle'."
-    fi
+    echo "The Brewfile has changed. Running 'brew bundle'..."
+    brew bundle
 else
     echo "Brewfile did not change."
 fi
