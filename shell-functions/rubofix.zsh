@@ -3,5 +3,5 @@
 # `git diff --name-only main` that have changed.
 # `grep -v schema` but ignore changes to the auto generated schema.
 rubofix() {
-    git diff --name-only main | grep '.rb' | grep -v schema | xargs rubocop -A
+    git diff --name-only --diff-filter=AM main | grep '.rb' | grep -v schema | xargs rubocop -A
 }
