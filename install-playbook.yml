@@ -57,7 +57,6 @@
         - asdfrc
         - gitconfig
         - ssh_config
-        - tmuxinator
         - wezterm.lua
         - tool-versions
       tags: link
@@ -76,7 +75,6 @@
         - "borders"
         - "ghostty"
       tags: link
-
 
     - file:
         src: "{{ playbook_dir }}/ssh_config"

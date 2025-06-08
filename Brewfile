@@ -31,6 +31,7 @@ brew 'atuin'
 brew 'starship'
 brew 'fd'
 brew 'ripgrep'
+brew 'eza'
 
 cask '1password-cli'
 cask 'font-monaspace'
