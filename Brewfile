@@ -43,6 +43,7 @@ cask 'wezterm'
 cask 'session-manager-plugin'
 cask 'aerospace'
 cask 'ghostty'
+cask 'monitorcontrol'
 
 mas 'Amphetamine', id: 937_984_704
 mas 'FruitJuice', id: 671_736_912
