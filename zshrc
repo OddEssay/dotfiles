@@ -148,7 +148,9 @@ if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
 fi
 
 # Add RVM only if it's installed
-[ -s "$HOME/.rvm/bin" ] && export PATH="$PATH:$HOME/.rvm/bin"
+#[ -s "$HOME/.rvm/bin" ] && export PATH="$PATH:$HOME/.rvm/bin"
+# Add RVM only if it's installed
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 
 # pnpm
 export PNPM_HOME="/Users/paul/Library/pnpm"
