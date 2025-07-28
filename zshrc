@@ -184,3 +184,6 @@ alias claude="/Users/paul/.claude/local/claude"
 export PATH="$HOME/.local/bin:$PATH"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# ASDF (asdf plugin configured above)
+. $(brew --prefix asdf)/libexec/asdf.sh
