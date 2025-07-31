@@ -93,3 +93,13 @@
       community.general.homebrew_services:
         name: borders
         state: present
+
+    - name: Install rustup for rust management
+      shell: 
+        cmd: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        creates: ~/.cargo/bin/rustup
+
+    - name: Install Volta for node management
+      shell: 
+        cmd: curl https://get.volta.sh | bash
+        creates: ~/.volta/bin/volta
