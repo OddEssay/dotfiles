@@ -104,3 +104,12 @@
 | Abolish Command | Notes |
 | --------------- | ----- |
 | :%Subvert/facilit{y,ies}/building{,s}/g | Replace ***facilit***y with ***building***, facilit***ies*** with building***s*** |
+
+
+## Volta
+| Volta Command | Notes |
+| ------------- | ----- |
+| volta install node | Install node latest LTS |
+| volta install yarn | Install yarn latest LTS |
+| npm install --global typescript | Install typescript latest LTS |
+
