@@ -96,7 +96,7 @@
 
     - name: Install rustup for rust management
       shell: 
-        cmd: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        cmd: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
         creates: ~/.cargo/bin/rustup
 
     - name: Install Volta for node management
