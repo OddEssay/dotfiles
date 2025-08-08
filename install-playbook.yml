@@ -103,3 +103,9 @@
       shell: 
         cmd: curl https://get.volta.sh | bash
         creates: ~/.volta/bin/volta
+
+    - name: Install Cursor Agent CLI
+      shell:
+        cmd: curl https://cursor.com/install -fsS | bash
+        creates: ~/.local/bin/cursor-agent
+
