@@ -132,3 +132,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # ASDF (asdf plugin configured above)
 . $(brew --prefix asdf)/libexec/asdf.sh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/paul/.lmstudio/bin"
+# End of LM Studio CLI section
+
