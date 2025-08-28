@@ -24,6 +24,8 @@ brew 'starship'
 brew 'fd'
 brew 'ripgrep'
 brew 'eza'
+brew 'fzf'
+brew 'zoxide'
 
 # OpenCode AI TUI
 tap 'sst/tap'
