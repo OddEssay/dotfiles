@@ -9,6 +9,11 @@ export HISTFILESIZE=100000
 export HISTSIZE=100000
 export SAVEHIST=100000
 
+
+plugins=(git you-should-use asdf volta zoxide) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
 export PATH="/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Applications/IntelliJ IDEA.app/Contents/MacOS"
