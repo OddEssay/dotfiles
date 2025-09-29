@@ -216,6 +216,10 @@ run = 'move-node-to-workspace T'
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace S'
 
+[[on-window-detected]]
+if.app-id = 'com.granola.app'
+run = 'move-node-to-workspace G'
+
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 2 = 'secondary'
