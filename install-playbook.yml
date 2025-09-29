@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  connection: local
   become: no
   become_user: root
   vars:
@@ -109,3 +110,7 @@
         cmd: curl https://cursor.com/install -fsS | bash
         creates: ~/.local/bin/cursor-agent
 
+    - name: Install CodeRabbit CLI
+      shell:
+        cmd: curl -fsSL https://cli.coderabbit.ai/install.sh | sh
+        creates: ~/.local/bin/coderabbit
