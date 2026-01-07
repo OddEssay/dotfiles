@@ -1,5 +1,5 @@
 echo "\n\nInstalling Homebrew...\n\n"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "\n\nInstalling Ansible with Brew...\n\n"
 brew install ansible

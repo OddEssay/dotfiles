@@ -1,6 +1,3 @@
-tap 'homebrew/bundle'
-tap 'homebrew/services'
-
 brew 'ansible'
 brew 'autoconf'
 brew 'automake'
@@ -40,14 +37,11 @@ cask 'session-manager-plugin'
 cask 'ghostty'
 
 # Aerospace and JankyBorders for window layouts
-tap 'nikitabobko/tap'
-cask 'aerospace' # https://github.com/nikitabobko/aerospace https://nikitabobko.github.io/AeroSpace/guide
-tap 'FelixKratz/formulae'
-brew "borders" # From the FelixKratz/formulae tap. https://github.com/FelixKratz/JankyBorders 
+cask 'nikitabobko/tap/aerospace' # https://github.com/nikitabobko/aerospace https://nikitabobko.github.io/AeroSpace/guide
+brew "FelixKratz/formulae/borders" # From the FelixKratz/formulae tap. https://github.com/FelixKratz/JankyBorders 
 
 brew 'mas' # Allows the following apps to be installed from the App Store. Apps must be manually for the first machine it is installed on.
 mas 'Amphetamine', id: 937_984_704
-mas 'FruitJuice', id: 671_736_912
 mas 'Slack', id: 803_453_959
 mas 'Hush Nag Blocker', id: 1_544_743_900
 mas 'Microsoft Word', id: 462_054_704
