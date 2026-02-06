@@ -24,6 +24,9 @@ brew 'eza'
 brew 'fzf'
 brew 'zoxide'
 
+# Development Tooling
+cask 'orbstack'
+
 # OpenCode AI TUI
 tap 'sst/tap'
 brew 'opencode' # https://github.com/sst/opencode
