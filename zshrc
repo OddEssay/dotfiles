@@ -16,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Ensure Volta's bin directory is first in PATH to avoid shadowing by other node installations
+export PATH="$HOME/.volta/bin:$PATH"
+
 export PATH="/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Applications/IntelliJ IDEA.app/Contents/MacOS"
 
 # Make navigation around my main file paths easier
@@ -65,7 +68,7 @@ zstyle ':completion:*' matcher-list '' \
 
 alias psg="ps aux | grep"
 
-source ~/dotfiles/env_secrets
+[ -f ~/dotfiles/env_secrets ] && source ~/dotfiles/env_secrets
 
 for file in ~/dotfiles/shell-functions/*.zsh; do
     autoload -Uz "$(basename "$file" .zsh)"
@@ -135,10 +138,14 @@ export PATH="$HOME/.local/bin:$PATH"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
-# ASDF (asdf plugin configured above)
-. $(brew --prefix asdf)/libexec/asdf.sh
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/paul/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+# Added by CodeRabbit CLI installer
+export PATH="/Users/paul/.local/bin:$PATH"
+
+# opencode
+export PATH=/Users/paul/.opencode/bin:$PATH
