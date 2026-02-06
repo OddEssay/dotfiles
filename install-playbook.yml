@@ -62,6 +62,34 @@
         - tool-versions
       tags: link
 
+    - name: Ensure ~/.config directory exists
+      file:
+        path: ~/.config
+        state: directory
+        mode: '0755'
+      tags: link
+
+    - name: Check if config paths exist and are not symlinks
+      stat:
+        path: "~/.config/{{item}}"
+      with_items:
+        - nvim
+        - "atuin"
+        - "starship.toml"
+        - "aerospace"
+        - "borders"
+        - "ghostty"
+      tags: link
+      register: config_paths_stat
+
+    - name: Remove existing config directories/files if they exist and are not symlinks
+      file:
+        path: "~/.config/{{item.item}}"
+        state: absent
+      when: item.stat.exists and not item.stat.islnk
+      with_items: "{{ config_paths_stat.results }}"
+      tags: link
+
     - name: Link config files
       file:
         src: "{{ playbook_dir }}/config/{{item}}"
@@ -114,3 +142,8 @@
       shell:
         cmd: curl -fsSL https://cli.coderabbit.ai/install.sh | sh
         creates: ~/.local/bin/coderabbit
+
+    - name: Install Claude Code
+      shell:
+        cmd: curl -fsSL https://claude.ai/install.sh | bash
+        creates: ~/.local/bin/claude
