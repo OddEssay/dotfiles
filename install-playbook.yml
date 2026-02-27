@@ -105,7 +105,15 @@
         - "ghostty"
       tags: link
 
-    - file:
+    - name: Ensure ~/.ssh directory exists
+      file:
+        path: ~/.ssh
+        state: directory
+        mode: '0700'
+      tags: link
+
+    - name: Link ssh config
+      file:
         src: "{{ playbook_dir }}/ssh_config"
         dest: "~/.ssh/config"
         state: link
