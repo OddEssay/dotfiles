@@ -1,3 +1,8 @@
+# Auto-start tmux in Ghostty
+if [[ "$TERM_PROGRAM" == "ghostty" && -z "$TMUX" ]]; then
+  exec /opt/homebrew/bin/tmux new-session -A -s ghostty
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 

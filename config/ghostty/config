@@ -4,6 +4,9 @@
 # theme = lovelace
 theme = Teerb
 
+# Fallback for systems without xterm-ghostty terminfo
+# term = xterm-256color
+
 window-decoration = false
 confirm-close-surface = false
-command = /Users/paul/dotfiles/ghostty-tmux.sh
+# tmux auto-start is handled in zshrc

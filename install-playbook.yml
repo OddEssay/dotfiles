@@ -12,7 +12,12 @@
       ignore_errors: yes
 
     - name: Use brew bundle to install brew packages in Brewfile
-      shell: brew bundle
+      shell:
+        cmd: brew bundle
+        executable: /bin/bash
+      register: brew_bundle_result
+      changed_when: "'Upgrading' in brew_bundle_result.stdout or 'Installing' in brew_bundle_result.stdout"
+      ignore_errors: yes
 
     - name: Show Hidden Folders in Finder
       shell: defaults write com.apple.finder AppleShowAllFiles YES
