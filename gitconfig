@@ -15,3 +15,7 @@
 	template = ~/.gitmessage
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true
+[coderabbit]
+	machineId = cli/2aabf2235b594630ba19b7ffc98c7707

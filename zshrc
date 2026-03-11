@@ -154,3 +154,20 @@ export PATH="/Users/paul/.local/bin:$PATH"
 
 # opencode
 export PATH=/Users/paul/.opencode/bin:$PATH
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/paul/.config/.dart-cli-completion/zsh-config.zsh ]] && . /Users/paul/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
+# pnpm
+export PNPM_HOME="/Users/paul/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Added by Antigravity
+export PATH="/Users/paul/.antigravity/antigravity/bin:$PATH"
