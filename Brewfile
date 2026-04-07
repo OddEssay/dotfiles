@@ -26,6 +26,7 @@ brew 'zoxide'
 
 # Development Tooling
 cask 'orbstack'
+brew 'mise'
 
 # OpenCode AI TUI
 tap 'sst/tap'
