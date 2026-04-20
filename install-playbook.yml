@@ -156,6 +156,13 @@
         cmd: curl -fsSL https://cli.coderabbit.ai/install.sh | sh
         creates: ~/.local/bin/coderabbit
 
+    - name: Cron job to auto-update Oh My ZSH daily at 3:33am
+      cron:
+        name: "Update Oh My ZSH"
+        minute: "33"
+        hour: "3"
+        job: "ZSH=$HOME/.oh-my-zsh $HOME/.oh-my-zsh/tools/upgrade.sh > /tmp/omz-update.log 2>&1"
+
     - name: Install Claude Code
       shell:
         cmd: curl -fsSL https://claude.ai/install.sh | bash

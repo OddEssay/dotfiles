@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Theme is loaded from the homebrew installed spaceship, not ZSH_THEME
 eval "$(starship init zsh)"
 
-export UPDATE_ZSH_DAYS=5
+zstyle ':omz:update' mode disabled
 export HISTFILESIZE=100000
 export HISTSIZE=100000
 export SAVEHIST=100000
@@ -171,3 +171,9 @@ esac
 
 # Added by Antigravity
 export PATH="/Users/paul/.antigravity/antigravity/bin:$PATH"
+
+
+alias yolo="/Users/paul/.claude/local/claude --dangerously-skip-permissions"
+
+
+alias claude="/Users/paul/.claude/local/claude"
