@@ -172,8 +172,8 @@ esac
 # Added by Antigravity
 export PATH="/Users/paul/.antigravity/antigravity/bin:$PATH"
 
-
-alias yolo="/Users/paul/.claude/local/claude --dangerously-skip-permissions"
-
-
 alias claude="/Users/paul/.claude/local/claude"
+alias yolo="/Users/paul/.claude/local/claude --dangerously-skip-permissions"
+#
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
