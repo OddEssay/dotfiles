@@ -178,7 +178,6 @@ alias yolo="claude --dangerously-skip-permissions"
 alias cuc="claude --update; claude --model opus --effort=max"
 alias opus="claude --update; claude --model opus --effort=max --agent orchestrator"
 
-#
 # Vite+ bin (https://viteplus.dev)
 . "$HOME/.vite-plus/env"
 
