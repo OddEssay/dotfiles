@@ -76,6 +76,45 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	end,
 })
 
+-- [[ Auto-reload files changed outside of Neovim ]]
+-- Pairs with okuuva/auto-save.nvim so the buffer always reflects the file on disk.
+-- If the buffer is unmodified, the file reloads silently. If the buffer is also
+-- modified (true conflict), Neovim's built-in W12 prompt asks whether to load
+-- the on-disk version or keep the in-memory one. See `:help timestamp`.
+vim.opt.autoread = true
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI", "TermClose", "TermLeave" }, {
+	desc = "Check if file changed on disk and reload (or prompt on conflict)",
+	group = vim.api.nvim_create_augroup("auto-reload-checktime", { clear = true }),
+	callback = function()
+		if vim.fn.mode() ~= "c" and vim.fn.getcmdwintype() == "" then
+			vim.cmd("checktime")
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+	desc = "Notify when an externally-changed file is reloaded",
+	group = vim.api.nvim_create_augroup("auto-reload-notify", { clear = true }),
+	callback = function()
+		vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.WARN)
+	end,
+})
+
+-- Track each buffer's last-known on-disk mtime so auto-save can detect when
+-- the file has been modified externally (git pull, coding agent, another
+-- editor) and refuse to overwrite it. See auto-save.lua `condition`.
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "FileChangedShellPost" }, {
+	desc = "Record on-disk mtime for conflict detection",
+	group = vim.api.nvim_create_augroup("track-buffer-mtime", { clear = true }),
+	callback = function(event)
+		local name = vim.api.nvim_buf_get_name(event.buf)
+		if name ~= "" and vim.fn.filereadable(name) == 1 then
+			vim.b[event.buf].last_known_mtime = vim.fn.getftime(name)
+		end
+	end,
+})
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -541,12 +580,17 @@ require("lazy").setup({
 	},
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
+		-- Pin to master: the `main` branch is a rewrite that removes APIs other
+		-- plugins (e.g. telescope) still rely on, like `parsers.ft_to_lang`.
+		branch = "master",
 		build = ":TSUpdate",
 		config = function()
-			require("nvim-treesitter").setup({
+			require("nvim-treesitter.configs").setup({
 				ensure_installed = { "bash", "c", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
 				auto_install = true,
 				prefer_git = true,
+				highlight = { enable = true },
+				indent = { enable = true },
 			})
 		end,
 	},
