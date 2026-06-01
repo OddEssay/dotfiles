@@ -15,6 +15,7 @@ brew 'the_silver_searcher' # Adds the ag tool for faster grepping
 brew 'tmux'
 brew 'tree'
 brew 'neovim'
+brew 'tree-sitter-cli' # Required by nvim-treesitter (main branch) for parser installation
 brew 'pinentry-mac'
 brew 'atuin'
 brew 'starship'
