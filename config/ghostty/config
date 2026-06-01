@@ -10,3 +10,7 @@ theme = Teerb
 window-decoration = false
 confirm-close-surface = false
 # tmux auto-start is handled in zshrc
+
+# Emit the kitty-protocol sequence for Shift+Enter so tmux (extended-keys)
+# can forward it to apps like Claude Code as "insert newline"
+keybind = shift+enter=text:\x1b[13;2u
