@@ -84,6 +84,7 @@
         - "aerospace"
         - "borders"
         - "ghostty"
+        - "hunk"
       tags: link
       register: config_paths_stat
 
@@ -108,6 +109,7 @@
         - "aerospace"
         - "borders"
         - "ghostty"
+        - "hunk"
       tags: link
 
     - name: Ensure ~/.ssh directory exists

@@ -1,7 +1,7 @@
 # Auto-start tmux in Ghostty
-if [[ "$TERM_PROGRAM" == "ghostty" && -z "$TMUX" ]]; then
-  exec /opt/homebrew/bin/tmux new-session -A -s ghostty
-fi
+#if [[ "$TERM_PROGRAM" == "ghostty" && -z "$TMUX" ]]; then
+# exec /opt/homebrew/bin/tmux new-session -A -s ghostty
+#fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -24,7 +24,7 @@ source $ZSH/oh-my-zsh.sh
 # Ensure Volta's bin directory is first in PATH to avoid shadowing by other node installations
 export PATH="$HOME/.volta/bin:$PATH"
 
-export PATH="/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Applications/IntelliJ IDEA.app/Contents/MacOS"
+export PATH="/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Applications/IntelliJ IDEA.app/Contents/MacOS:/Applications/WebStorm.app/Contents/MacOS"
 
 # Make navigation around my main file paths easier
 cdpath=(~/ ~/Development ~/Development/patchwork)
@@ -169,7 +169,21 @@ esac
 # Added by Antigravity
 export PATH="/Users/paul/.antigravity/antigravity/bin:$PATH"
 
+# mise: activate so mise-managed tools (uv, elixir, erlang, ...) land on PATH.
+# Must come after the PATH exports above so mise diffs against the final PATH.
+# Only injects tools declared in an in-scope mise.toml, so it won't fight Volta/nvm over node.
+eval "$(mise activate zsh)"
+
 alias yolo="claude --dangerously-skip-permissions"
+alias cuc="claude --update; claude --model opus --effort=max"
+alias opus="claude --update; claude --model opus --effort=max --agent orchestrator"
+
 #
 # Vite+ bin (https://viteplus.dev)
 . "$HOME/.vite-plus/env"
+
+alias wt=lazyworktree --config=lw.trust_mode=always
+alias gpfwl="git push --force-with-lease"
+
+# Added by Antigravity IDE
+export PATH="/Users/paul/.antigravity-ide/antigravity-ide/bin:$PATH"

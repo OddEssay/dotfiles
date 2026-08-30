@@ -11,6 +11,6 @@ window-decoration = false
 confirm-close-surface = false
 # tmux auto-start is handled in zshrc
 
-# Emit the kitty-protocol sequence for Shift+Enter so tmux (extended-keys)
-# can forward it to apps like Claude Code as "insert newline"
+# Emit Shift+Enter as CSI-u so tmux can preserve the modifier for TUIs such as
+# Codex and Claude Code.
 keybind = shift+enter=text:\x1b[13;2u

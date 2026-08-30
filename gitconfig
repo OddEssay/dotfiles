@@ -9,6 +9,7 @@
 	eol = lf
 	fileMode = false
 	editor = vim
+	pager = hunk pager
 [fetch]
 	prune = true
 [commit]
